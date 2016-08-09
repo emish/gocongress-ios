@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC652D881D4EC42100FF0E90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D871D4EC42100FF0E90 /* AppDelegate.swift */; };
+		DC652D8F1D4EC42100FF0E90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC652D8D1D4EC42100FF0E90 /* Main.storyboard */; };
+		DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC652D901D4EC42100FF0E90 /* Assets.xcassets */; };
+		DC652D941D4EC42100FF0E90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */; };
+		DC652D9C1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9B1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift */; };
+		DC652D9E1D4EC55D00FF0E90 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */; };
+		DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9F1D4EC59500FF0E90 /* Data.swift */; };
+		DC652DA21D4EC96900FF0E90 /* congress_schedule.csv in Resources */ = {isa = PBXBuildFile; fileRef = DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */; };
+		DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
+		DC652DAD1D536CEC00FF0E90 /* GoCongressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */; };
+		DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC652DAF1D536CEC00FF0E90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC652D7C1D4EC42100FF0E90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC652D831D4EC42100FF0E90;
+			remoteInfo = GoCongress;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC652D841D4EC42100FF0E90 /* GoCongress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoCongress.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC652D871D4EC42100FF0E90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC652D8E1D4EC42100FF0E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC652D901D4EC42100FF0E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC652D931D4EC42100FF0E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC652D951D4EC42100FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC652D9B1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionsViewControllerTableViewController.swift; path = ../SessionsViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		DC652D9F1D4EC59500FF0E90 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = congress_schedule.csv; sourceTree = "<group>"; };
+		DC652DA41D536C8C00FF0E90 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		DC652DAA1D536CEC00FF0E90 /* GoCongressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoCongressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoCongressTests.swift; sourceTree = "<group>"; };
+		DC652DAE1D536CEC00FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC652D811D4EC42100FF0E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC652DA71D536CEC00FF0E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC652D7B1D4EC42100FF0E90 = {
+			isa = PBXGroup;
+			children = (
+				DC652D861D4EC42100FF0E90 /* GoCongress */,
+				DC652DA31D4EC97700FF0E90 /* Resources */,
+				DC652DAB1D536CEC00FF0E90 /* GoCongressTests */,
+				DC652D851D4EC42100FF0E90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC652D851D4EC42100FF0E90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC652D841D4EC42100FF0E90 /* GoCongress.app */,
+				DC652DAA1D536CEC00FF0E90 /* GoCongressTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC652D861D4EC42100FF0E90 /* GoCongress */ = {
+			isa = PBXGroup;
+			children = (
+				DC652D9B1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift */,
+				DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */,
+				DC652D9F1D4EC59500FF0E90 /* Data.swift */,
+				DC652D871D4EC42100FF0E90 /* AppDelegate.swift */,
+				DC652DA41D536C8C00FF0E90 /* Session.swift */,
+				DC652D8D1D4EC42100FF0E90 /* Main.storyboard */,
+				DC652D901D4EC42100FF0E90 /* Assets.xcassets */,
+				DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */,
+				DC652D951D4EC42100FF0E90 /* Info.plist */,
+			);
+			path = GoCongress;
+			sourceTree = "<group>";
+		};
+		DC652DA31D4EC97700FF0E90 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */,
+			);
+			name = Resources;
+			path = GoCongress;
+			sourceTree = "<group>";
+		};
+		DC652DAB1D536CEC00FF0E90 /* GoCongressTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */,
+				DC652DAE1D536CEC00FF0E90 /* Info.plist */,
+			);
+			path = GoCongressTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC652D831D4EC42100FF0E90 /* GoCongress */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC652D981D4EC42100FF0E90 /* Build configuration list for PBXNativeTarget "GoCongress" */;
+			buildPhases = (
+				DC652D801D4EC42100FF0E90 /* Sources */,
+				DC652D811D4EC42100FF0E90 /* Frameworks */,
+				DC652D821D4EC42100FF0E90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoCongress;
+			productName = GoCongress;
+			productReference = DC652D841D4EC42100FF0E90 /* GoCongress.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC652DA91D536CEC00FF0E90 /* GoCongressTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC652DB11D536CEC00FF0E90 /* Build configuration list for PBXNativeTarget "GoCongressTests" */;
+			buildPhases = (
+				DC652DA61D536CEC00FF0E90 /* Sources */,
+				DC652DA71D536CEC00FF0E90 /* Frameworks */,
+				DC652DA81D536CEC00FF0E90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC652DB01D536CEC00FF0E90 /* PBXTargetDependency */,
+			);
+			name = GoCongressTests;
+			productName = GoCongressTests;
+			productReference = DC652DAA1D536CEC00FF0E90 /* GoCongressTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC652D7C1D4EC42100FF0E90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = emish;
+				TargetAttributes = {
+					DC652D831D4EC42100FF0E90 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					DC652DA91D536CEC00FF0E90 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DC652D831D4EC42100FF0E90;
+					};
+				};
+			};
+			buildConfigurationList = DC652D7F1D4EC42100FF0E90 /* Build configuration list for PBXProject "GoCongress" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC652D7B1D4EC42100FF0E90;
+			productRefGroup = DC652D851D4EC42100FF0E90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC652D831D4EC42100FF0E90 /* GoCongress */,
+				DC652DA91D536CEC00FF0E90 /* GoCongressTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC652D821D4EC42100FF0E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC652D941D4EC42100FF0E90 /* LaunchScreen.storyboard in Resources */,
+				DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */,
+				DC652D8F1D4EC42100FF0E90 /* Main.storyboard in Resources */,
+				DC652DA21D4EC96900FF0E90 /* congress_schedule.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC652DA81D536CEC00FF0E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC652D801D4EC42100FF0E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */,
+				DC652D9E1D4EC55D00FF0E90 /* MapsViewController.swift in Sources */,
+				DC652D881D4EC42100FF0E90 /* AppDelegate.swift in Sources */,
+				DC652D9C1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift in Sources */,
+				DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC652DA61D536CEC00FF0E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */,
+				DC652DAD1D536CEC00FF0E90 /* GoCongressTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC652DB01D536CEC00FF0E90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC652D831D4EC42100FF0E90 /* GoCongress */;
+			targetProxy = DC652DAF1D536CEC00FF0E90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC652D8D1D4EC42100FF0E90 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC652D8E1D4EC42100FF0E90 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC652D931D4EC42100FF0E90 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC652D961D4EC42100FF0E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC652D971D4EC42100FF0E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC652D991D4EC42100FF0E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GoCongress/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DC652D9A1D4EC42100FF0E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GoCongress/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DC652DB21D536CEC00FF0E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GoCongressTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoCongress.app/GoCongress";
+			};
+			name = Debug;
+		};
+		DC652DB31D536CEC00FF0E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GoCongressTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoCongress.app/GoCongress";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC652D7F1D4EC42100FF0E90 /* Build configuration list for PBXProject "GoCongress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC652D961D4EC42100FF0E90 /* Debug */,
+				DC652D971D4EC42100FF0E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC652D981D4EC42100FF0E90 /* Build configuration list for PBXNativeTarget "GoCongress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC652D991D4EC42100FF0E90 /* Debug */,
+				DC652D9A1D4EC42100FF0E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DC652DB11D536CEC00FF0E90 /* Build configuration list for PBXNativeTarget "GoCongressTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC652DB21D536CEC00FF0E90 /* Debug */,
+				DC652DB31D536CEC00FF0E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC652D7C1D4EC42100FF0E90 /* Project object */;
+}
