@@ -41,6 +41,7 @@ struct SessionParser {
     let rawData: String
     let fullPath: String
     
+    // TODO: Create NSTimeZone and parse times as EST or w/e they happen to be.
     let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     
     /// Parser internal state machine for progressing through the CSV.

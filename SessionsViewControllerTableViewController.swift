@@ -8,11 +8,42 @@
 
 import UIKit
 
+let SESSION_CELL_ID = "session_cell"
+
 class SessionsViewControllerTableViewController: UITableViewController {
+
+    var sectionsByTime = [NSDate: [Session]]()
+    var sections = [NSDate]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Loaded as expected.")
+        // Create our sections dict.
+        
+        for session in Data.sharedData.sessions {
+            // Add the time start to our sections list.
+            if (!self.sections.contains(session.timeStart)) {
+                self.sections.append(session.timeStart)
+            }
+            
+            // Store the list of sessions that start at that time.
+            if var sessionList = self.sectionsByTime[session.timeStart] {
+                sessionList.append(session)
+                self.sectionsByTime[session.timeStart] = sessionList
+            } else {
+                self.sectionsByTime[session.timeStart] = [session]
+            }
+        }
+        
+        // FIXME: This is not sorting by date anymore... First store by date, then map to description.
+        // Store in dictionary by date as well?
+        self.sections.sortInPlace { (dateA, dateB) -> Bool in
+            return dateA.compare(dateB) == .OrderedAscending
+        }
+        
+        // TODO: order the lists of sessions by start date by end time
+        dump(self.sections)
+        dump(self.sectionsByTime)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,24 +54,43 @@ class SessionsViewControllerTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        // FIXME: This is the number of distinct start hours, every session in a section is one that starts at that hour.
+        return self.sectionsByTime.keys.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        // This is the number of sessions that share the same start hour.
+        let dateForSection = self.sections[section]
+        return self.sectionsByTime[dateForSection]!.count
     }
 
-    /*
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(SESSION_CELL_ID, forIndexPath: indexPath)
 
-        // Configure the cell...
-
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .NoStyle
+        dateFormatter.timeStyle = .ShortStyle
+        
+        let session = self.sectionsByTime[self.sections[indexPath.section]]![indexPath.row]
+        cell.textLabel!.text = "\(session.title) - \(session.instructor)"
+        let timeEndString: String
+        if let timeEnd = session.timeEnd {
+            timeEndString = " - \(dateFormatter.stringFromDate(timeEnd))"
+        } else {
+            timeEndString = ""
+        }
+        cell.detailTextLabel!.text = "\(dateFormatter.stringFromDate(session.timeStart))\(timeEndString) -- \(session.room)"
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .ShortStyle
+        
+        return dateFormatter.stringFromDate(self.sections[section])
+    }
 
     /*
     // Override to support conditional editing of the table view.
