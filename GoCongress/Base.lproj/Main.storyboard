@@ -77,31 +77,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something Cool We Will Show You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0l-d8-GFO">
-                                <rect key="frame" x="20" y="115" width="560" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <rect key="frame" x="20" y="115" width="560" height="32.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Cool" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFu-yH-dd2">
-                                <rect key="frame" x="20" y="159" width="560" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday, August 8, 9:00 - 9:40 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7p-Y2-gmC">
-                                <rect key="frame" x="20" y="203" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Dr. Cool" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFu-yH-dd2">
+                                <rect key="frame" x="20" y="155" width="560" height="40.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Cool Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avM-vq-923">
-                                <rect key="frame" x="20" y="227" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="227" width="560" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rkd-Gl-Eq0">
-                                <rect key="frame" x="20" y="268" width="560" height="200"/>
+                                <rect key="frame" x="20" y="264" width="560" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="GPq-YN-Umj"/>
@@ -110,20 +104,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday, August 8, 9:00 - 9:40 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7p-Y2-gmC">
+                                <rect key="frame" x="20" y="204" width="560" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="avM-vq-923" secondAttribute="trailing" id="1Hp-eQ-MH2"/>
+                            <constraint firstItem="avM-vq-923" firstAttribute="top" secondItem="Z7p-Y2-gmC" secondAttribute="bottom" constant="3" id="34o-vd-C4p"/>
                             <constraint firstItem="2sA-a6-FQ2" firstAttribute="top" secondItem="aFu-yH-dd2" secondAttribute="bottom" constant="356" id="3Oo-Fy-RER"/>
+                            <constraint firstItem="Z7p-Y2-gmC" firstAttribute="leading" secondItem="aFu-yH-dd2" secondAttribute="leading" id="5rQ-nc-e9d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rkd-Gl-Eq0" secondAttribute="trailing" id="6Bm-cB-pfY"/>
                             <constraint firstItem="Rkd-Gl-Eq0" firstAttribute="top" secondItem="avM-vq-923" secondAttribute="bottom" constant="20" id="7hf-Ud-65n"/>
                             <constraint firstItem="avM-vq-923" firstAttribute="leading" secondItem="Rkd-Gl-Eq0" secondAttribute="leading" id="BQD-7R-wGM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="avM-vq-923" secondAttribute="leading" id="DyD-Hy-phU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Z7p-Y2-gmC" secondAttribute="trailing" id="Gey-RZ-kzM"/>
+                            <constraint firstItem="Z7p-Y2-gmC" firstAttribute="top" secondItem="aFu-yH-dd2" secondAttribute="bottom" constant="8" id="IUd-Qy-mDe"/>
                             <constraint firstItem="aFu-yH-dd2" firstAttribute="top" secondItem="Q0l-d8-GFO" secondAttribute="bottom" constant="8" symbolic="YES" id="LP8-a4-R5z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q0l-d8-GFO" secondAttribute="trailing" id="QdD-A5-aco"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aFu-yH-dd2" secondAttribute="trailing" id="T7w-VW-mca"/>
                             <constraint firstItem="avM-vq-923" firstAttribute="top" secondItem="VGK-5h-rqA" secondAttribute="top" constant="227" id="Vc1-cN-Rij"/>
+                            <constraint firstItem="Z7p-Y2-gmC" firstAttribute="leading" secondItem="avM-vq-923" secondAttribute="leading" id="Xg5-U7-TLx"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Q0l-d8-GFO" secondAttribute="leading" id="aC0-jp-3mp"/>
                             <constraint firstItem="Q0l-d8-GFO" firstAttribute="top" secondItem="Mfl-qa-F7e" secondAttribute="bottom" constant="51" id="bRq-t8-KFP"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Z7p-Y2-gmC" secondAttribute="leading" id="jrm-ek-AeR"/>
@@ -133,12 +137,22 @@
                             <constraint firstItem="avM-vq-923" firstAttribute="trailing" secondItem="Rkd-Gl-Eq0" secondAttribute="trailing" id="vzx-MP-Y0V"/>
                             <constraint firstItem="2sA-a6-FQ2" firstAttribute="top" secondItem="Q0l-d8-GFO" secondAttribute="bottom" constant="400" id="zrY-QT-dtC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5rQ-nc-e9d"/>
+                                <exclude reference="Xg5-U7-TLx"/>
+                                <exclude reference="34o-vd-C4p"/>
+                                <exclude reference="BQD-7R-wGM"/>
+                                <exclude reference="vzx-MP-Y0V"/>
+                                <exclude reference="3Oo-Fy-RER"/>
+                                <exclude reference="zrY-QT-dtC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="dateTimeLabel" destination="Z7p-Y2-gmC" id="IJX-NU-g9y"/>
                         <outlet property="descriptionTextView" destination="Rkd-Gl-Eq0" id="Wuy-8H-dYX"/>
                         <outlet property="descriptionTextViewHeight" destination="GPq-YN-Umj" id="Nsw-jk-b4x"/>
-                        <outlet property="descriptionTextViwe" destination="Rkd-Gl-Eq0" id="aze-ne-L60"/>
                         <outlet property="instructorLabel" destination="aFu-yH-dd2" id="or9-b7-Vj9"/>
                         <outlet property="roomLabel" destination="avM-vq-923" id="RGP-iS-ndv"/>
                         <outlet property="titleLabel" destination="Q0l-d8-GFO" id="dkM-YO-3CX"/>
