@@ -9,6 +9,7 @@
 import UIKit
 
 let SESSION_CELL_ID = "session_cell"
+let SESSION_DETAIL_VIEW_SEGUE = "sessionDetailViewSegue"
 
 class SessionsViewControllerTableViewController: UITableViewController {
 
@@ -127,14 +128,19 @@ class SessionsViewControllerTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        if (segue.identifier == SESSION_DETAIL_VIEW_SEGUE) {
+            let detailViewController = segue.destinationViewController as! SessionDetailViewController
+            let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell)
+            let session = self.sectionsByTime[self.sections[indexPath!.section]]![indexPath!.row]
+            detailViewController.session = session
+        }
     }
-    */
 
 }

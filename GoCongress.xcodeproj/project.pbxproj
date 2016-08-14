@@ -11,13 +11,14 @@
 		DC652D8F1D4EC42100FF0E90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC652D8D1D4EC42100FF0E90 /* Main.storyboard */; };
 		DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC652D901D4EC42100FF0E90 /* Assets.xcassets */; };
 		DC652D941D4EC42100FF0E90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */; };
-		DC652D9C1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9B1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift */; };
 		DC652D9E1D4EC55D00FF0E90 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */; };
 		DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9F1D4EC59500FF0E90 /* Data.swift */; };
 		DC652DA21D4EC96900FF0E90 /* congress_schedule.csv in Resources */ = {isa = PBXBuildFile; fileRef = DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */; };
 		DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
 		DC652DAD1D536CEC00FF0E90 /* GoCongressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */; };
 		DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
+		DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */; };
+		DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,6 @@
 		DC652D901D4EC42100FF0E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC652D931D4EC42100FF0E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC652D951D4EC42100FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC652D9B1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionsViewControllerTableViewController.swift; path = ../SessionsViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		DC652D9F1D4EC59500FF0E90 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = congress_schedule.csv; sourceTree = "<group>"; };
@@ -45,6 +45,8 @@
 		DC652DAA1D536CEC00FF0E90 /* GoCongressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoCongressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoCongressTests.swift; sourceTree = "<group>"; };
 		DC652DAE1D536CEC00FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +89,13 @@
 		DC652D861D4EC42100FF0E90 /* GoCongress */ = {
 			isa = PBXGroup;
 			children = (
-				DC652D9B1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift */,
+				DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */,
 				DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */,
 				DC652D9F1D4EC59500FF0E90 /* Data.swift */,
 				DC652D871D4EC42100FF0E90 /* AppDelegate.swift */,
 				DC652DA41D536C8C00FF0E90 /* Session.swift */,
 				DC652D8D1D4EC42100FF0E90 /* Main.storyboard */,
+				DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */,
 				DC652D901D4EC42100FF0E90 /* Assets.xcassets */,
 				DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */,
 				DC652D951D4EC42100FF0E90 /* Info.plist */,
@@ -223,7 +226,8 @@
 				DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */,
 				DC652D9E1D4EC55D00FF0E90 /* MapsViewController.swift in Sources */,
 				DC652D881D4EC42100FF0E90 /* AppDelegate.swift in Sources */,
-				DC652D9C1D4EC51300FF0E90 /* SessionsViewControllerTableViewController.swift in Sources */,
+				DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */,
+				DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */,
 				DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +421,7 @@
 				DC652D9A1D4EC42100FF0E90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC652DB11D536CEC00FF0E90 /* Build configuration list for PBXNativeTarget "GoCongressTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				DC652DB31D536CEC00FF0E90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
