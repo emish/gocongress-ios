@@ -17,6 +17,7 @@
 		DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
 		DC652DAD1D536CEC00FF0E90 /* GoCongressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */; };
 		DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
+		DC7F412B1D60768800183096 /* congress_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7F412A1D60768800183096 /* congress_splash.png */; };
 		DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */; };
 		DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		DC652DAA1D536CEC00FF0E90 /* GoCongressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoCongressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoCongressTests.swift; sourceTree = "<group>"; };
 		DC652DAE1D536CEC00FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7F412A1D60768800183096 /* congress_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = congress_splash.png; sourceTree = "<group>"; };
 		DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 		DC652DA31D4EC97700FF0E90 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DC7F412A1D60768800183096 /* congress_splash.png */,
 				DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */,
 			);
 			name = Resources;
@@ -205,6 +208,7 @@
 				DC652D941D4EC42100FF0E90 /* LaunchScreen.storyboard in Resources */,
 				DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */,
 				DC652D8F1D4EC42100FF0E90 /* Main.storyboard in Resources */,
+				DC7F412B1D60768800183096 /* congress_splash.png in Resources */,
 				DC652DA21D4EC96900FF0E90 /* congress_schedule.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
