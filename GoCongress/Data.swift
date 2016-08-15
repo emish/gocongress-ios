@@ -14,11 +14,18 @@ class Data {
     static var sharedData = Data()
     /// Array of sessions in date order.
     var sessions: [Session]
+    /// The currently active user.
+    var user: User
     /// The name of the file used to parse sessions from (expecting .csv at the end).
     let filename = "congress_schedule"
     
     private init() {
         var parser = SessionParser(filename: self.filename)
         self.sessions = parser.parse()
+
+        // TODO: Search for a user in defaults, else create a new one.
+
+        // New user.
+        self.user = User()
     }
 }

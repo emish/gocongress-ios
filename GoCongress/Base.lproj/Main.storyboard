@@ -94,7 +94,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rkd-Gl-Eq0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday, August 8, 9:00 - 9:40 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7p-Y2-gmC">
+                                <rect key="frame" x="20" y="204" width="560" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rkd-Gl-Eq0">
                                 <rect key="frame" x="20" y="264" width="560" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -104,12 +110,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday, August 8, 9:00 - 9:40 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7p-Y2-gmC">
-                                <rect key="frame" x="20" y="204" width="560" height="19.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -149,12 +149,22 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="bDZ-wz-whR">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="QKl-ZO-hhW">
+                            <connections>
+                                <action selector="saveRemoveButtonTapped:" destination="usH-gU-TxW" id="e46-Q1-moB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateTimeLabel" destination="Z7p-Y2-gmC" id="IJX-NU-g9y"/>
                         <outlet property="descriptionTextView" destination="Rkd-Gl-Eq0" id="Wuy-8H-dYX"/>
                         <outlet property="descriptionTextViewHeight" destination="GPq-YN-Umj" id="Nsw-jk-b4x"/>
                         <outlet property="instructorLabel" destination="aFu-yH-dd2" id="or9-b7-Vj9"/>
                         <outlet property="roomLabel" destination="avM-vq-923" id="RGP-iS-ndv"/>
+                        <outlet property="saveRemoveButton" destination="QKl-ZO-hhW" id="2OT-hF-1yA"/>
                         <outlet property="titleLabel" destination="Q0l-d8-GFO" id="dkM-YO-3CX"/>
                     </connections>
                 </viewController>
