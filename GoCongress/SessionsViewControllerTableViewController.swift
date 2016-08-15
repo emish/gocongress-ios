@@ -13,38 +13,64 @@ let SESSION_DETAIL_VIEW_SEGUE = "sessionDetailViewSegue"
 
 class SessionsViewControllerTableViewController: UITableViewController {
 
-    var sectionsByTime = [NSDate: [Session]]()
-    var sections = [NSDate]()
+    var allSectionsByTime = [NSDate: [Session]]()
+    var allSections = [NSDate]()
+
+    var favoriteSectionsByTime = [NSDate: [Session]]()
+    var favoriteSections = [NSDate]()
+
+    var showingSectionsByTime = [NSDate: [Session]]()
+    var showingSections = [NSDate]()
+
+    @IBOutlet weak var sessionFilter: UISegmentedControl!
+    var showingFavorites: Bool = false
+
+    /// Return a sorted array of sections by date and dictionary of sections indexed by date.
+    func populateSectionsFromDataSource(dataSource: [Session]) -> ([NSDate], [NSDate: [Session]]) {
+        var tmpSections = [NSDate]()
+        var tmpSectionsByTime = [NSDate: [Session]]()
+
+        for session in dataSource {
+            // Add the time start to our sections list.
+            if (!tmpSections.contains(session.timeStart)) {
+                tmpSections.append(session.timeStart)
+            }
+
+            // Store the list of sessions that start at that time.
+            if var sessionList = tmpSectionsByTime[session.timeStart] {
+                sessionList.append(session)
+                tmpSectionsByTime[session.timeStart] = sessionList
+            } else {
+                tmpSectionsByTime[session.timeStart] = [session]
+            }
+        }
+
+        // FIXME: This is not sorting by date anymore... First store by date, then map to description.
+        // Store in dictionary by date as well?
+        tmpSections.sortInPlace { (dateA, dateB) -> Bool in
+            return dateA.compare(dateB) == .OrderedAscending
+        }
+
+        return (tmpSections, tmpSectionsByTime)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Loaded as expected.")
-        // Create our sections dict.
-        
-        for session in Data.sharedData.sessions {
-            // Add the time start to our sections list.
-            if (!self.sections.contains(session.timeStart)) {
-                self.sections.append(session.timeStart)
-            }
-            
-            // Store the list of sessions that start at that time.
-            if var sessionList = self.sectionsByTime[session.timeStart] {
-                sessionList.append(session)
-                self.sectionsByTime[session.timeStart] = sessionList
-            } else {
-                self.sectionsByTime[session.timeStart] = [session]
-            }
+
+        // TODO: Load favorites too (from NSUserDefaults)
+        (self.allSections, self.allSectionsByTime) = self.populateSectionsFromDataSource(Data.sharedData.sessions)
+
+        self.showingSections = self.allSections
+        self.showingSectionsByTime = self.allSectionsByTime
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        if self.showingFavorites {
+            self.refilterFavorites()
+            (self.showingSections, self.showingSectionsByTime) = (self.favoriteSections, self.favoriteSectionsByTime)
+            self.tableView.reloadData()
         }
-        
-        // FIXME: This is not sorting by date anymore... First store by date, then map to description.
-        // Store in dictionary by date as well?
-        self.sections.sortInPlace { (dateA, dateB) -> Bool in
-            return dateA.compare(dateB) == .OrderedAscending
-        }
-        
-        // TODO: order the lists of sessions by start date by end time
-        dump(self.sections)
-        dump(self.sectionsByTime)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,15 +82,14 @@ class SessionsViewControllerTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // FIXME: This is the number of distinct start hours, every session in a section is one that starts at that hour.
-        return self.sectionsByTime.keys.count
+        return self.showingSectionsByTime.keys.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // This is the number of sessions that share the same start hour.
-        let dateForSection = self.sections[section]
-        return self.sectionsByTime[dateForSection]!.count
+        let dateForSection = self.showingSections[section]
+        return self.showingSectionsByTime[dateForSection]!.count
     }
-
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(SESSION_CELL_ID, forIndexPath: indexPath)
@@ -73,7 +98,7 @@ class SessionsViewControllerTableViewController: UITableViewController {
         dateFormatter.dateStyle = .NoStyle
         dateFormatter.timeStyle = .ShortStyle
         
-        let session = self.sectionsByTime[self.sections[indexPath.section]]![indexPath.row]
+        let session = self.showingSectionsByTime[self.showingSections[indexPath.section]]![indexPath.row]
         cell.textLabel!.text = "\(session.title) - \(session.instructor)"
         let timeEndString: String
         if let timeEnd = session.timeEnd {
@@ -90,43 +115,8 @@ class SessionsViewControllerTableViewController: UITableViewController {
         dateFormatter.dateStyle = .MediumStyle
         dateFormatter.timeStyle = .ShortStyle
         
-        return dateFormatter.stringFromDate(self.sections[section])
+        return dateFormatter.stringFromDate(self.showingSections[section])
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
@@ -134,13 +124,37 @@ class SessionsViewControllerTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-
         if (segue.identifier == SESSION_DETAIL_VIEW_SEGUE) {
             let detailViewController = segue.destinationViewController as! SessionDetailViewController
             let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell)
-            let session = self.sectionsByTime[self.sections[indexPath!.section]]![indexPath!.row]
+            let session = self.showingSectionsByTime[self.showingSections[indexPath!.section]]![indexPath!.row]
             detailViewController.session = session
         }
+    }
+
+    // MARK: - Filtering Favorites
+
+    @IBAction func filterValueChanged(sender: UISegmentedControl) {
+        // Showing favorites
+        if sender.selectedSegmentIndex == 1 {
+            self.refilterFavorites()
+            self.showingFavorites = true
+            self.showingSections = self.favoriteSections
+            self.showingSectionsByTime = self.favoriteSectionsByTime
+        } else {
+            // Showing all
+            self.showingFavorites = false
+            self.showingSections = self.allSections
+            self.showingSectionsByTime = self.allSectionsByTime
+        }
+
+        self.tableView.reloadData()
+    }
+
+    func refilterFavorites() {
+        (self.favoriteSections, self.favoriteSectionsByTime) = self.populateSectionsFromDataSource(Data.sharedData.sessions.filter({ (s: Session) -> Bool in
+            Data.sharedData.user.favorites.contains(s)
+        }))
     }
 
 }

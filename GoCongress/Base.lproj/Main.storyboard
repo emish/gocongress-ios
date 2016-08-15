@@ -57,8 +57,14 @@
                                 <segment title="All Sessions"/>
                                 <segment title="Favorites"/>
                             </segments>
+                            <connections>
+                                <action selector="filterValueChanged:" destination="eYe-e3-Vqo" eventType="valueChanged" id="9O9-iM-VUN"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sessionFilter" destination="SHY-vB-fwh" id="QXV-LI-WGC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kR6-sa-G2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
