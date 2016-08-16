@@ -23,13 +23,18 @@ class Data {
         var parser = SessionParser(filename: self.filename)
         self.sessions = parser.parse()
 
-        // TODO: Init user from defaults if found.
-        // else
+        // Right now we make a new one cuz all we store are the favorites.
         self.user = User()
+
+        if let storedFavorites = NSUserDefaults.standardUserDefaults().objectForKey("userFavorites") as? NSData {
+            self.user.favorites = NSKeyedUnarchiver.unarchiveObjectWithData(storedFavorites) as! [Session]
+        }
     }
 
     /// Save whatever is necessary to the local user defaults.
     func syncUserData() {
-        //NSUserDefaults.standardUserDefaults().setObject(data, forKey: "user")
+        // ℹ️ We need to user NSKeyedArchiver for the whole array because it contains non-plist types (that conform to NSCoding).
+        let storedFavorites = NSKeyedArchiver.archivedDataWithRootObject(self.user.favorites)
+        NSUserDefaults.standardUserDefaults().setObject(storedFavorites, forKey: "userFavorites")
     }
 }

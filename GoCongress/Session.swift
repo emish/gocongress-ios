@@ -62,16 +62,21 @@ class Session : NSObject, Comparable, NSCoding {
         aCoder.encodeObject(self.timeStart, forKey: "timeStart")
         aCoder.encodeObject(self.timeEnd, forKey: "timeEnd")
     }
+
+    override func isEqual(object: AnyObject?) -> Bool {
+        guard let someSession = object as? Session else {
+            fatalError("Cannot compare non-session object with Session object.")
+        }
+        return (self.timeStart == someSession.timeStart) &&
+            (self.timeEnd == someSession.timeEnd) &&
+            (self.title == someSession.title) &&
+            (self.instructor == someSession.instructor) &&
+            (self.room == someSession.room) &&
+            (self.info == someSession.info)
+    }
+
 }
 
-func ==(sessionA: Session, sessionB: Session) -> Bool {
-    return (sessionA.timeStart == sessionB.timeStart) &&
-        (sessionA.timeEnd == sessionB.timeEnd) &&
-        (sessionA.title == sessionB.title) &&
-        (sessionA.instructor == sessionB.instructor) &&
-        (sessionA.room == sessionB.room) &&
-        (sessionA.info == sessionB.info)
-}
 
 /// A session is ordered before another session if it's start time is earlier.
 func <(sessionA: Session, sessionB: Session) -> Bool {

@@ -58,8 +58,8 @@ class SessionsViewControllerTableViewController: UITableViewController {
         super.viewDidLoad()
         print("Loaded as expected.")
 
-        // TODO: Load favorites too (from NSUserDefaults)
         (self.allSections, self.allSectionsByTime) = self.populateSectionsFromDataSource(Data.sharedData.sessions)
+        (self.favoriteSections, self.favoriteSectionsByTime) = self.populateSectionsFromDataSource(Data.sharedData.user.favorites)
 
         self.showingSections = self.allSections
         self.showingSectionsByTime = self.allSectionsByTime
@@ -152,9 +152,10 @@ class SessionsViewControllerTableViewController: UITableViewController {
     }
 
     func refilterFavorites() {
-        (self.favoriteSections, self.favoriteSectionsByTime) = self.populateSectionsFromDataSource(Data.sharedData.sessions.filter({ (s: Session) -> Bool in
-            Data.sharedData.user.favorites.contains(s)
-        }))
+        (self.favoriteSections, self.favoriteSectionsByTime) = self.populateSectionsFromDataSource(Data.sharedData.sessions.filter
+            { (s: Session) -> Bool in
+                Data.sharedData.user.favorites.contains(s)
+            })
     }
 
 }
