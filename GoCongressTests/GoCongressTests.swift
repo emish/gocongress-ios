@@ -61,32 +61,32 @@ class GoCongressTests: XCTestCase {
         let row = "7/31,Ballroom,09:00 - 12:00,Matthew Hershberger,US Open (round 1)"
 
         let currDate = self.parser.dateFromString("7/31")
-        let correctSession = Session(date: currDate,
-                                     timeStart: self.parser.timeFromString("09:00", date: currDate),
-                                     timeEnd: self.parser.timeFromString("12:00", date: currDate),
-                                     title: "US Open (round 1)",
+        let correctSession = Session(title: "US Open (round 1)",
                                      instructor: "Matthew Hershberger",
                                      room: "Ballroom",
-                                     description: "")
-        let testSession = self.parser.parseRow(row)
+                                     info: "",
+                                     date: currDate,
+                                     timeStart: self.parser.timeFromString("09:00", date: currDate),
+                                     timeEnd: self.parser.timeFromString("12:00", date: currDate))
+        let testSession = self.parser.parseRow(row)!
 
-        XCTAssertEqual(correctSession, testSession)
+        XCTAssertTrue(correctSession == testSession)
     }
 
     func testParseRowMissingEndTime() {
         let row = "7/30,Lobby,10:00 - ,Neil Ritter,Registration"
 
         let currDate = self.parser.dateFromString("7/30")
-        let correctSession = Session(date: currDate,
-                                     timeStart: self.parser.timeFromString("10:00", date: currDate),
-                                     timeEnd: nil,
-                                     title: "Registration",
+        let correctSession = Session(title: "Registration",
                                      instructor: "Neil Ritter",
                                      room: "Lobby",
-                                     description: "")
-        let testSession = self.parser.parseRow(row)
+                                     info: "",
+                                     date: currDate,
+                                     timeStart: self.parser.timeFromString("10:00", date: currDate),
+                                     timeEnd: nil)
+        let testSession = self.parser.parseRow(row)!
 
-        XCTAssertEqual(correctSession, testSession)
+        XCTAssertTrue(correctSession == testSession)
     }
 
     func testParseRowSequenceMissingValues() {
@@ -99,69 +99,69 @@ class GoCongressTests: XCTestCase {
         let row7 = ",,,On Sojin,"
 
         let currDate = self.parser.dateFromString("7/31")
-        let correctSession1 = Session(date: currDate,
+        let correctSession1 = Session(title: "US Open (round 1)",
+                                      instructor: "Matthew Hershberger",
+                                      room: "Ballroom",
+                                      info: "",
+                                      date: currDate,
                                      timeStart: self.parser.timeFromString("09:00", date: currDate),
-                                     timeEnd: self.parser.timeFromString("12:00", date: currDate),
-                                     title: "US Open (round 1)",
-                                     instructor: "Matthew Hershberger",
-                                     room: "Ballroom",
-                                     description: "")
+                                     timeEnd: self.parser.timeFromString("12:00", date: currDate))
 
-        let correctSession2 = Session(date: currDate,
-                                      timeStart: self.parser.timeFromString("09:00", date: currDate),
-                                      timeEnd: self.parser.timeFromString("12:00", date: currDate),
-                                      title: "US Open Master (round 1)",
+        let correctSession2 = Session(title: "US Open Master (round 1)",
                                       instructor: "Matthew Hershberger",
                                       room: "Terrace Lounge",
-                                      description: "")
+                                      info: "",
+                                      date: currDate,
+                                      timeStart: self.parser.timeFromString("09:00", date: currDate),
+                                      timeEnd: self.parser.timeFromString("12:00", date: currDate))
 
-        let correctSession3 = Session(date: currDate,
-                                      timeStart: self.parser.timeFromString("15:00", date: currDate),
-                                      timeEnd: self.parser.timeFromString("17:00", date: currDate),
-                                      title: "Redmond Cup Final (round 1)",
+        let correctSession3 = Session(title: "Redmond Cup Final (round 1)",
                                       instructor: "Paul Barchilon",
                                       room: "Terrace Lounge",
-                                      description: "")
+                                      info: "",
+                                      date: currDate,
+                                      timeStart: self.parser.timeFromString("15:00", date: currDate),
+                                      timeEnd: self.parser.timeFromString("17:00", date: currDate))
 
-        let correctSession4 = Session(date: currDate,
-                                      timeStart: self.parser.timeFromString("13:00", date: currDate),
-                                      timeEnd: self.parser.timeFromString("14:50", date: currDate),
-                                      title: "Simul Games",
+        let correctSession4 = Session(title: "Simul Games",
                                       instructor: "Liao Guiyong",
                                       room: "Ballroom B",
-                                      description: "")
-
-        let correctSession5 = Session(date: currDate,
+                                      info: "",
+                                      date: currDate,
                                       timeStart: self.parser.timeFromString("13:00", date: currDate),
-                                      timeEnd: self.parser.timeFromString("14:50", date: currDate),
-                                      title: "Simul Games",
+                                      timeEnd: self.parser.timeFromString("14:50", date: currDate))
+
+        let correctSession5 = Session(title: "Simul Games",
                                       instructor: "Zhou Jie",
                                       room: "Ballroom B",
-                                      description: "")
+                                      info: "",
+                                      date: currDate,
+                                      timeStart: self.parser.timeFromString("13:00", date: currDate),
+                                      timeEnd: self.parser.timeFromString("14:50", date: currDate))
 
-        let correctSession6 = Session(date: currDate,
-                                      timeStart: self.parser.timeFromString("15:00", date: currDate),
-                                      timeEnd: self.parser.timeFromString("16:50", date: currDate),
-                                      title: "Simul Games",
+        let correctSession6 = Session(title: "Simul Games",
                                       instructor: "Ailin Hsiao",
                                       room: "Ballroom B",
-                                      description: "")
-
-        let correctSession7 = Session(date: currDate,
+                                      info: "",
+                                      date: currDate,
                                       timeStart: self.parser.timeFromString("15:00", date: currDate),
-                                      timeEnd: self.parser.timeFromString("16:50", date: currDate),
-                                      title: "Simul Games",
+                                      timeEnd: self.parser.timeFromString("16:50", date: currDate))
+
+        let correctSession7 = Session(title: "Simul Games",
                                       instructor: "On Sojin",
                                       room: "Ballroom B",
-                                      description: "")
+                                      info: "",
+                                      date: currDate,
+                                      timeStart: self.parser.timeFromString("15:00", date: currDate),
+                                      timeEnd: self.parser.timeFromString("16:50", date: currDate))
 
-        XCTAssertEqual(self.parser.parseRow(row1), correctSession1)
-        XCTAssertEqual(self.parser.parseRow(row2), correctSession2)
-        XCTAssertEqual(self.parser.parseRow(row3), correctSession3)
-        XCTAssertEqual(self.parser.parseRow(row4), correctSession4)
-        XCTAssertEqual(self.parser.parseRow(row5), correctSession5)
-        XCTAssertEqual(self.parser.parseRow(row6), correctSession6)
-        XCTAssertEqual(self.parser.parseRow(row7), correctSession7)
+        XCTAssertTrue(self.parser.parseRow(row1)! == correctSession1)
+        XCTAssertTrue(self.parser.parseRow(row2)! == correctSession2)
+        XCTAssertTrue(self.parser.parseRow(row3)! == correctSession3)
+        XCTAssertTrue(self.parser.parseRow(row4)! == correctSession4)
+        XCTAssertTrue(self.parser.parseRow(row5)! == correctSession5)
+        XCTAssertTrue(self.parser.parseRow(row6)! == correctSession6)
+        XCTAssertTrue(self.parser.parseRow(row7)! == correctSession7)
     }
 
     func testParseDoesntCrash() {

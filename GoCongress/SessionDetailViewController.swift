@@ -63,6 +63,7 @@ class SessionDetailViewController: UIViewController {
         }
 
         Data.sharedData.user = user
+        Data.sharedData.syncUserData()
     }
 
     /*

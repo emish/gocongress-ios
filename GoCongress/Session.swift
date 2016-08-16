@@ -8,17 +8,60 @@
 
 import Foundation
 
-struct Session : Comparable {
+class Session : NSObject, Comparable, NSCoding {
+    let title: String
+    let instructor: String
+    let room: String
+    let info: String
     let date: NSDate
     let timeStart: NSDate
     /// The time a session ends. May not exist.
     let timeEnd: NSDate?
-    let title: String
-    let instructor: String
-    let room: String
-    let description: String
-    
+
     static let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+
+    init(title: String, instructor: String, room: String, info: String, date: NSDate, timeStart: NSDate, timeEnd: NSDate?) {
+        self.title = title
+        self.instructor = instructor
+        self.room = room
+        self.info = info
+        self.date = date
+        self.timeStart = timeStart
+        self.timeEnd = timeEnd
+    }
+
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let title = aDecoder.decodeObjectForKey("title") as? String,
+            let instructor = aDecoder.decodeObjectForKey("instructor") as? String,
+            let room = aDecoder.decodeObjectForKey("room") as? String,
+            let info = aDecoder.decodeObjectForKey("info") as? String,
+            let date = aDecoder.decodeObjectForKey("date") as? NSDate,
+            let timeStart = aDecoder.decodeObjectForKey("timeStart") as? NSDate,
+            let timeEnd = aDecoder.decodeObjectForKey("timeEnd") as? NSDate?
+            else {
+                return nil
+        }
+
+        self.init(
+            title: title,
+            instructor: instructor,
+            room: room,
+            info: info,
+            date: date,
+            timeStart: timeStart,
+            timeEnd: timeEnd
+        )
+    }
+
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.title, forKey: "title")
+        aCoder.encodeObject(self.instructor, forKey: "instructor")
+        aCoder.encodeObject(self.room, forKey: "room")
+        aCoder.encodeObject(self.info, forKey: "info")
+        aCoder.encodeObject(self.date, forKey: "date")
+        aCoder.encodeObject(self.timeStart, forKey: "timeStart")
+        aCoder.encodeObject(self.timeEnd, forKey: "timeEnd")
+    }
 }
 
 func ==(sessionA: Session, sessionB: Session) -> Bool {
@@ -27,7 +70,7 @@ func ==(sessionA: Session, sessionB: Session) -> Bool {
         (sessionA.title == sessionB.title) &&
         (sessionA.instructor == sessionB.instructor) &&
         (sessionA.room == sessionB.room) &&
-        (sessionA.description == sessionB.description)
+        (sessionA.info == sessionB.info)
 }
 
 /// A session is ordered before another session if it's start time is earlier.
@@ -50,6 +93,7 @@ struct SessionParser {
     var currentStartTime: NSDate?
     var currentEndTime: NSDate?
     var currentTitle: String?
+    var currentId: Int
     
     init(filename: String) {
         let bundle = NSBundle.mainBundle()
@@ -58,6 +102,8 @@ struct SessionParser {
         
         self.rawData = try! String(contentsOfFile: self.fullPath)
         print("Contents: \n --- \n\(self.rawData)\n---\n")
+
+        self.currentId = 0
     }
     
     /// Parse the input CSV file that was configured in the initializer and return the list of Sessions generated.
@@ -130,14 +176,16 @@ struct SessionParser {
         if (title != "") {
             self.currentTitle = title
         }
+        self.currentId += 1
         
-        return Session(date: self.currentDate!,
-                       timeStart: self.currentStartTime!,
-                       timeEnd: self.currentEndTime,
-                       title: self.currentTitle!,
+        return Session(title: self.currentTitle!,
                        instructor: instructor,
                        room: self.currentRoom!,
-                       description: "")
+                       info: "",
+                       date: self.currentDate!,
+                       timeStart: self.currentStartTime!,
+                       timeEnd: self.currentEndTime
+        )
     }
     
     func numberOfCols() -> Int {
