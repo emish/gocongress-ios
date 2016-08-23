@@ -17,11 +17,14 @@
 		DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9F1D4EC59500FF0E90 /* Data.swift */; };
 		DC652DA21D4EC96900FF0E90 /* congress_schedule.csv in Resources */ = {isa = PBXBuildFile; fileRef = DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */; };
 		DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
-		DC652DAD1D536CEC00FF0E90 /* GoCongressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */; };
+		DC652DAD1D536CEC00FF0E90 /* CSVParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DAC1D536CEC00FF0E90 /* CSVParserTests.swift */; };
 		DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
 		DC7F412B1D60768800183096 /* congress_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7F412A1D60768800183096 /* congress_splash.png */; };
 		DC7F412D1D6087ED00183096 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F412C1D6087ED00183096 /* User.swift */; };
 		DC7F412E1D6087ED00183096 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F412C1D6087ED00183096 /* User.swift */; };
+		DC7F41331D6C11E200183096 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41321D6C11E200183096 /* RSSParser.swift */; };
+		DC7F41341D6C11E200183096 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41321D6C11E200183096 /* RSSParser.swift */; };
+		DC7F41381D6C1A0700183096 /* RSSFeedParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41371D6C1A0700183096 /* RSSFeedParserTests.swift */; };
 		DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */; };
 		DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,10 +57,12 @@
 		DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = congress_schedule.csv; sourceTree = "<group>"; };
 		DC652DA41D536C8C00FF0E90 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		DC652DAA1D536CEC00FF0E90 /* GoCongressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoCongressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoCongressTests.swift; sourceTree = "<group>"; };
+		DC652DAC1D536CEC00FF0E90 /* CSVParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParserTests.swift; sourceTree = "<group>"; };
 		DC652DAE1D536CEC00FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC7F412A1D60768800183096 /* congress_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = congress_splash.png; sourceTree = "<group>"; };
 		DC7F412C1D6087ED00183096 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DC7F41321D6C11E200183096 /* RSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
+		DC7F41371D6C1A0700183096 /* RSSFeedParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeedParserTests.swift; sourceTree = "<group>"; };
 		DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,16 +131,12 @@
 		DC652D861D4EC42100FF0E90 /* GoCongress */ = {
 			isa = PBXGroup;
 			children = (
-				DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */,
-				DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */,
-				DC652D9F1D4EC59500FF0E90 /* Data.swift */,
-				DC7F412C1D6087ED00183096 /* User.swift */,
+				DC7F41351D6C13F400183096 /* View Controllers */,
+				DC7F41361D6C140D00183096 /* Models */,
 				DC652D871D4EC42100FF0E90 /* AppDelegate.swift */,
-				DC652DA41D536C8C00FF0E90 /* Session.swift */,
-				DC652D8D1D4EC42100FF0E90 /* Main.storyboard */,
-				DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */,
 				DC652D901D4EC42100FF0E90 /* Assets.xcassets */,
 				DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */,
+				DC652D8D1D4EC42100FF0E90 /* Main.storyboard */,
 				DC652D951D4EC42100FF0E90 /* Info.plist */,
 			);
 			path = GoCongress;
@@ -154,10 +155,32 @@
 		DC652DAB1D536CEC00FF0E90 /* GoCongressTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC652DAC1D536CEC00FF0E90 /* GoCongressTests.swift */,
+				DC652DAC1D536CEC00FF0E90 /* CSVParserTests.swift */,
+				DC7F41371D6C1A0700183096 /* RSSFeedParserTests.swift */,
 				DC652DAE1D536CEC00FF0E90 /* Info.plist */,
 			);
 			path = GoCongressTests;
+			sourceTree = "<group>";
+		};
+		DC7F41351D6C13F400183096 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */,
+				DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */,
+				DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		DC7F41361D6C140D00183096 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DC652D9F1D4EC59500FF0E90 /* Data.swift */,
+				DC7F412C1D6087ED00183096 /* User.swift */,
+				DC652DA41D536C8C00FF0E90 /* Session.swift */,
+				DC7F41321D6C11E200183096 /* RSSParser.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +393,7 @@
 				DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */,
 				DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */,
 				DC7F412D1D6087ED00183096 /* User.swift in Sources */,
+				DC7F41331D6C11E200183096 /* RSSParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,8 +402,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */,
-				DC652DAD1D536CEC00FF0E90 /* GoCongressTests.swift in Sources */,
+				DC652DAD1D536CEC00FF0E90 /* CSVParserTests.swift in Sources */,
+				DC7F41381D6C1A0700183096 /* RSSFeedParserTests.swift in Sources */,
 				DC7F412E1D6087ED00183096 /* User.swift in Sources */,
+				DC7F41341D6C11E200183096 /* RSSParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

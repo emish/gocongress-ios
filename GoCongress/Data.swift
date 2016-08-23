@@ -19,9 +19,12 @@ class Data {
     /// The name of the file used to parse sessions from (expecting .csv at the end).
     let filename = "congress_schedule"
 
+    /// The parser that collects information from the Go Congress news blog.
+    let feedParser: RSSParser
+
     private init() {
-        var parser = SessionParser(filename: self.filename)
-        self.sessions = parser.parse()
+        var sessionParser = SessionParser(filename: self.filename)
+        self.sessions = sessionParser.parse()
 
         // Right now we make a new one cuz all we store are the favorites.
         self.user = User()
@@ -29,6 +32,8 @@ class Data {
         if let storedFavorites = NSUserDefaults.standardUserDefaults().objectForKey("userFavorites") as? NSData {
             self.user.favorites = NSKeyedUnarchiver.unarchiveObjectWithData(storedFavorites) as! [Session]
         }
+
+        self.feedParser = RSSParser()
     }
 
     /// Save whatever is necessary to the local user defaults.

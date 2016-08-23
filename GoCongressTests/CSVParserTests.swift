@@ -10,7 +10,7 @@ import XCTest
 
 let TEST_FILENAME = "congress_schedule"
 
-class GoCongressTests: XCTestCase {
+class CSVParserTests: XCTestCase {
 
     var parser = SessionParser(filename: TEST_FILENAME)
 
