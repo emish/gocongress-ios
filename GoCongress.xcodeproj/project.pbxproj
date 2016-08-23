@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A00159F83D2C015091D73CA /* Pods_GoCongressTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B2C88544D3B60A7FB18C0C /* Pods_GoCongressTests.framework */; };
+		BC91379F82E68B0B05B826A7 /* Pods_GoCongress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93409617123D0B83D4B0E3A /* Pods_GoCongress.framework */; };
 		DC652D881D4EC42100FF0E90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D871D4EC42100FF0E90 /* AppDelegate.swift */; };
 		DC652D8F1D4EC42100FF0E90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC652D8D1D4EC42100FF0E90 /* Main.storyboard */; };
 		DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC652D901D4EC42100FF0E90 /* Assets.xcassets */; };
@@ -35,6 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55B9796F02A27C49B4660C2D /* Pods-GoCongressTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoCongressTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoCongressTests/Pods-GoCongressTests.debug.xcconfig"; sourceTree = "<group>"; };
+		647DE83340EA955EA24F8D04 /* Pods-GoCongress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoCongress.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoCongress/Pods-GoCongress.release.xcconfig"; sourceTree = "<group>"; };
+		7863EEDE1DB8011A3D939301 /* Pods-GoCongressTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoCongressTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoCongressTests/Pods-GoCongressTests.release.xcconfig"; sourceTree = "<group>"; };
+		A4A4D5827C4AE3CBFA6157A9 /* Pods-GoCongress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoCongress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoCongress/Pods-GoCongress.debug.xcconfig"; sourceTree = "<group>"; };
+		B93409617123D0B83D4B0E3A /* Pods_GoCongress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoCongress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9B2C88544D3B60A7FB18C0C /* Pods_GoCongressTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoCongressTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC652D841D4EC42100FF0E90 /* GoCongress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoCongress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC652D871D4EC42100FF0E90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC652D8E1D4EC42100FF0E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC91379F82E68B0B05B826A7 /* Pods_GoCongress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +75,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A00159F83D2C015091D73CA /* Pods_GoCongressTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		677C42DD6432AEA95C01A3B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B93409617123D0B83D4B0E3A /* Pods_GoCongress.framework */,
+				C9B2C88544D3B60A7FB18C0C /* Pods_GoCongressTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89C9DE68CD09350188415C3D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4A4D5827C4AE3CBFA6157A9 /* Pods-GoCongress.debug.xcconfig */,
+				647DE83340EA955EA24F8D04 /* Pods-GoCongress.release.xcconfig */,
+				55B9796F02A27C49B4660C2D /* Pods-GoCongressTests.debug.xcconfig */,
+				7863EEDE1DB8011A3D939301 /* Pods-GoCongressTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DC652D7B1D4EC42100FF0E90 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +109,8 @@
 				DC652DA31D4EC97700FF0E90 /* Resources */,
 				DC652DAB1D536CEC00FF0E90 /* GoCongressTests */,
 				DC652D851D4EC42100FF0E90 /* Products */,
+				89C9DE68CD09350188415C3D /* Pods */,
+				677C42DD6432AEA95C01A3B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC652D981D4EC42100FF0E90 /* Build configuration list for PBXNativeTarget "GoCongress" */;
 			buildPhases = (
+				64C0AA7C8F0B03C790F441E6 /* [CP] Check Pods Manifest.lock */,
 				DC652D801D4EC42100FF0E90 /* Sources */,
 				DC652D811D4EC42100FF0E90 /* Frameworks */,
 				DC652D821D4EC42100FF0E90 /* Resources */,
+				353F274EB81EED68DA9D4023 /* [CP] Embed Pods Frameworks */,
+				9156AB1D395C7C1BB5CA51B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC652DB11D536CEC00FF0E90 /* Build configuration list for PBXNativeTarget "GoCongressTests" */;
 			buildPhases = (
+				24AF8CB4D0886FA8CE577FF6 /* [CP] Check Pods Manifest.lock */,
 				DC652DA61D536CEC00FF0E90 /* Sources */,
 				DC652DA71D536CEC00FF0E90 /* Frameworks */,
 				DC652DA81D536CEC00FF0E90 /* Resources */,
+				FC19302561764410FD8D3F83 /* [CP] Embed Pods Frameworks */,
+				B28ABED9E029BC4B9277C6A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,6 +264,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24AF8CB4D0886FA8CE577FF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		353F274EB81EED68DA9D4023 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoCongress/Pods-GoCongress-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64C0AA7C8F0B03C790F441E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9156AB1D395C7C1BB5CA51B3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoCongress/Pods-GoCongress-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B28ABED9E029BC4B9277C6A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoCongressTests/Pods-GoCongressTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC19302561764410FD8D3F83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoCongressTests/Pods-GoCongressTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC652D801D4EC42100FF0E90 /* Sources */ = {
@@ -369,6 +500,7 @@
 		};
 		DC652D991D4EC42100FF0E90 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4A4D5827C4AE3CBFA6157A9 /* Pods-GoCongress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -383,6 +515,7 @@
 		};
 		DC652D9A1D4EC42100FF0E90 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 647DE83340EA955EA24F8D04 /* Pods-GoCongress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -397,6 +530,7 @@
 		};
 		DC652DB21D536CEC00FF0E90 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55B9796F02A27C49B4660C2D /* Pods-GoCongressTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GoCongressTests/Info.plist;
@@ -409,6 +543,7 @@
 		};
 		DC652DB31D536CEC00FF0E90 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7863EEDE1DB8011A3D939301 /* Pods-GoCongressTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GoCongressTests/Info.plist;
