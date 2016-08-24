@@ -182,7 +182,7 @@
         <scene sceneID="7AM-T0-bwi">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="hOl-cG-25s" customClass="MapsViewController" customModule="GoCongress" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Maps" id="pmI-cG-0TB"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="maps" selectedImage="maps" id="pmI-cG-0TB"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgE-yj-mTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +192,7 @@
         <scene sceneID="lWE-lC-swg">
             <objects>
                 <tableViewController id="ZqT-cQ-T6o" customClass="NewsTableViewController" customModule="GoCongress" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yq5-K8-EVN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yq5-K8-EVN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -281,7 +281,7 @@
         <scene sceneID="dCy-MQ-hEy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f84-xr-zo6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" id="oa1-iv-Vqv"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" selectedImage="calendar" id="oa1-iv-Vqv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ztB-x4-LKP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -300,7 +300,7 @@
         <scene sceneID="BtW-FY-im5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9a5-O2-fbz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" id="L6P-fM-1It"/>
+                    <tabBarItem key="tabBarItem" title="News" image="news" selectedImage="news" id="L6P-fM-1It"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gR8-KQ-kcG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -316,4 +316,9 @@
             <point key="canvasLocation" x="754" y="940"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar" width="50" height="50"/>
+        <image name="maps" width="50" height="50"/>
+        <image name="news" width="50" height="50"/>
+    </resources>
 </document>
