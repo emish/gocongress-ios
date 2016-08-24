@@ -13,6 +13,8 @@ let CONGRESS_RSS_FEED = "feed://live.gocongress.org/?feed=rss2"
 
 class RSSParser: RSSFeedParserDelegate {
 
+    var items = [RSSFeedItem]()
+
     init() {
         let feedURL: NSURL = NSURL(string: CONGRESS_RSS_FEED)!
         let feedParser: RSSFeedParser = RSSFeedParser(feedURL: feedURL)
@@ -43,6 +45,10 @@ class RSSParser: RSSFeedParserDelegate {
 
     @objc func feedParser(parser: RSSFeedParser, didParseFeedItem item: RSSFeedItem) {
         print("Parsed a FeedItem: \(item).")
+        // TODO: Make sure this gets inserted in sorted order by date updated.
+        if !self.items.contains(item) {
+            self.items.append(item)
+        }
     }
 }
 

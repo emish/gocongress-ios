@@ -25,6 +25,10 @@
 		DC7F41331D6C11E200183096 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41321D6C11E200183096 /* RSSParser.swift */; };
 		DC7F41341D6C11E200183096 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41321D6C11E200183096 /* RSSParser.swift */; };
 		DC7F41381D6C1A0700183096 /* RSSFeedParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41371D6C1A0700183096 /* RSSFeedParserTests.swift */; };
+		DC7F413A1D6D477900183096 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41391D6D477900183096 /* NewsTableViewController.swift */; };
+		DC7F413B1D6D477900183096 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41391D6D477900183096 /* NewsTableViewController.swift */; };
+		DC7F413D1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F413C1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift */; };
+		DC7F413E1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F413C1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift */; };
 		DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */; };
 		DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +67,8 @@
 		DC7F412C1D6087ED00183096 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DC7F41321D6C11E200183096 /* RSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
 		DC7F41371D6C1A0700183096 /* RSSFeedParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeedParserTests.swift; sourceTree = "<group>"; };
+		DC7F41391D6D477900183096 /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		DC7F413C1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+GoCongressAdditions.swift"; sourceTree = "<group>"; };
 		DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +140,7 @@
 				DC7F41351D6C13F400183096 /* View Controllers */,
 				DC7F41361D6C140D00183096 /* Models */,
 				DC652D871D4EC42100FF0E90 /* AppDelegate.swift */,
+				DC7F413C1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift */,
 				DC652D901D4EC42100FF0E90 /* Assets.xcassets */,
 				DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */,
 				DC652D8D1D4EC42100FF0E90 /* Main.storyboard */,
@@ -168,6 +175,7 @@
 				DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */,
 				DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */,
 				DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */,
+				DC7F41391D6D477900183096 /* NewsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -390,10 +398,12 @@
 				DC652D9E1D4EC55D00FF0E90 /* MapsViewController.swift in Sources */,
 				DC652D881D4EC42100FF0E90 /* AppDelegate.swift in Sources */,
 				DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */,
+				DC7F413D1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */,
 				DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */,
 				DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */,
 				DC7F412D1D6087ED00183096 /* User.swift in Sources */,
 				DC7F41331D6C11E200183096 /* RSSParser.swift in Sources */,
+				DC7F413A1D6D477900183096 /* NewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,9 +413,11 @@
 			files = (
 				DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */,
 				DC652DAD1D536CEC00FF0E90 /* CSVParserTests.swift in Sources */,
+				DC7F413B1D6D477900183096 /* NewsTableViewController.swift in Sources */,
 				DC7F41381D6C1A0700183096 /* RSSFeedParserTests.swift in Sources */,
 				DC7F412E1D6087ED00183096 /* User.swift in Sources */,
 				DC7F41341D6C11E200183096 /* RSSParser.swift in Sources */,
+				DC7F413E1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
