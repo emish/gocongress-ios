@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="congress_splash.png" width="866" height="1244"/>
+        <image name="congress_splash.png" width="700" height="700"/>
     </resources>
 </document>
