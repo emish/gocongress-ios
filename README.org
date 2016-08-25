@@ -1,4 +1,4 @@
-gocongress-ios
+#+TITLE: gocongress-ios
 
 * Synopsis
   An event iOS application developed for the US Go Congress. The
