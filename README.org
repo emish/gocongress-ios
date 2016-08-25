@@ -1,0 +1,9 @@
+gocongress-ios
+
+* Synopsis
+  An event iOS application developed for the US Go Congress. The
+  current implementation uses static assets that are from the 2016
+  congress for demonstration purposes.
+
+* Installation
+  Build with Xcode 7.3.1 and deploy to iOS 9+.
