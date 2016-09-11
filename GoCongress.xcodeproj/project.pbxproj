@@ -13,7 +13,7 @@
 		DC652D8F1D4EC42100FF0E90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC652D8D1D4EC42100FF0E90 /* Main.storyboard */; };
 		DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC652D901D4EC42100FF0E90 /* Assets.xcassets */; };
 		DC652D941D4EC42100FF0E90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */; };
-		DC652D9E1D4EC55D00FF0E90 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */; };
+		DC652D9E1D4EC55D00FF0E90 /* MapsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9D1D4EC55D00FF0E90 /* MapsPageViewController.swift */; };
 		DC652DA01D4EC59500FF0E90 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652D9F1D4EC59500FF0E90 /* Data.swift */; };
 		DC652DA21D4EC96900FF0E90 /* congress_schedule.csv in Resources */ = {isa = PBXBuildFile; fileRef = DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */; };
 		DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
@@ -37,6 +37,10 @@
 		DC7F41471D6EB9B800183096 /* InfoTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41451D6EB9B800183096 /* InfoTextViewController.swift */; };
 		DC7F41491D6EC4C900183096 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41481D6EC4C900183096 /* InfoTableViewController.swift */; };
 		DC7F414A1D6EC4C900183096 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41481D6EC4C900183096 /* InfoTableViewController.swift */; };
+		DC7F414C1D86046800183096 /* MapImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F414B1D86046800183096 /* MapImageViewController.swift */; };
+		DC7F414D1D86046800183096 /* MapImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F414B1D86046800183096 /* MapImageViewController.swift */; };
+		DC7F415F1D860BE700183096 /* Maps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7F415E1D860BE700183096 /* Maps.xcassets */; };
+		DC7F41601D860BE700183096 /* Maps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7F415E1D860BE700183096 /* Maps.xcassets */; };
 		DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */; };
 		DC917EA61D5C2A6C000276FF /* SessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +68,7 @@
 		DC652D901D4EC42100FF0E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC652D931D4EC42100FF0E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC652D951D4EC42100FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		DC652D9D1D4EC55D00FF0E90 /* MapsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsPageViewController.swift; sourceTree = "<group>"; };
 		DC652D9F1D4EC59500FF0E90 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = congress_schedule.csv; sourceTree = "<group>"; };
 		DC652DA41D536C8C00FF0E90 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		DC7F41421D6EB83200183096 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		DC7F41451D6EB9B800183096 /* InfoTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTextViewController.swift; sourceTree = "<group>"; };
 		DC7F41481D6EC4C900183096 /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
+		DC7F414B1D86046800183096 /* MapImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapImageViewController.swift; sourceTree = "<group>"; };
+		DC7F415E1D860BE700183096 /* Maps.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Maps.xcassets; sourceTree = "<group>"; };
 		DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +160,7 @@
 				DC652D871D4EC42100FF0E90 /* AppDelegate.swift */,
 				DC7F413C1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift */,
 				DC652D901D4EC42100FF0E90 /* Assets.xcassets */,
+				DC7F415E1D860BE700183096 /* Maps.xcassets */,
 				DC652D921D4EC42100FF0E90 /* LaunchScreen.storyboard */,
 				DC652D8D1D4EC42100FF0E90 /* Main.storyboard */,
 				DC652D951D4EC42100FF0E90 /* Info.plist */,
@@ -185,12 +192,13 @@
 			isa = PBXGroup;
 			children = (
 				DC917EA31D5C23DF000276FF /* SessionsViewControllerTableViewController.swift */,
-				DC652D9D1D4EC55D00FF0E90 /* MapsViewController.swift */,
 				DC917EA51D5C2A6C000276FF /* SessionDetailViewController.swift */,
 				DC7F41391D6D477900183096 /* NewsTableViewController.swift */,
 				DC7F413F1D6EB74900183096 /* RootInfoTableViewController.swift */,
 				DC7F41481D6EC4C900183096 /* InfoTableViewController.swift */,
 				DC7F41451D6EB9B800183096 /* InfoTextViewController.swift */,
+				DC652D9D1D4EC55D00FF0E90 /* MapsPageViewController.swift */,
+				DC7F414B1D86046800183096 /* MapImageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 			files = (
 				DC652D941D4EC42100FF0E90 /* LaunchScreen.storyboard in Resources */,
 				DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */,
+				DC7F415F1D860BE700183096 /* Maps.xcassets in Resources */,
 				DC652D8F1D4EC42100FF0E90 /* Main.storyboard in Resources */,
 				DC7F412B1D60768800183096 /* congress_splash.png in Resources */,
 				DC652DA21D4EC96900FF0E90 /* congress_schedule.csv in Resources */,
@@ -307,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC7F41601D860BE700183096 /* Maps.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +422,8 @@
 			files = (
 				DC7F41461D6EB9B800183096 /* InfoTextViewController.swift in Sources */,
 				DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */,
-				DC652D9E1D4EC55D00FF0E90 /* MapsViewController.swift in Sources */,
+				DC7F414C1D86046800183096 /* MapImageViewController.swift in Sources */,
+				DC652D9E1D4EC55D00FF0E90 /* MapsPageViewController.swift in Sources */,
 				DC652D881D4EC42100FF0E90 /* AppDelegate.swift in Sources */,
 				DC917EA41D5C23DF000276FF /* SessionsViewControllerTableViewController.swift in Sources */,
 				DC7F413D1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */,
@@ -442,6 +453,7 @@
 				DC7F414A1D6EC4C900183096 /* InfoTableViewController.swift in Sources */,
 				DC7F41341D6C11E200183096 /* RSSParser.swift in Sources */,
 				DC7F413E1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */,
+				DC7F414D1D86046800183096 /* MapImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
