@@ -17,7 +17,7 @@ class SessionDetailViewController: UIViewController {
     @IBOutlet weak var roomLabel: UILabel!
 
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var descriptionTextViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var descriptionHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var saveRemoveButton: UIBarButtonItem!
 
@@ -37,20 +37,26 @@ class SessionDetailViewController: UIViewController {
         self.roomLabel.text = session.room
 
         // Place and size the description View to fit
-        self.descriptionTextView.text = session.description
-        // TODO: Size the height constraint; http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
-        //let heightThatFitsView = UITextView.sizethat
+        // FIXME Later, use description
+        //self.descriptionTextView.text = session.description
+
+        self.descriptionTextView.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
 
         let user = Data.sharedData.user
         self.saveRemoveButton.title = (user.favorites.contains(session)) ? "Remove" : "Save"
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // Set the height constraint to the size of the fitted view after text is inserted.
+        // https://medium.com/@pj_/ios-tips-dynamic-uitextview-102e73853fbc#.jzbn2fz7d
+        self.descriptionTextView.sizeToFit()
+        let size = self.descriptionTextView.contentSize
+        self.descriptionHeightConstraint.constant = size.height
+        self.descriptionTextView.scrollEnabled = false
     }
-    
+
     @IBAction func saveRemoveButtonTapped(sender: UIBarButtonItem) {
         var user = Data.sharedData.user
 
