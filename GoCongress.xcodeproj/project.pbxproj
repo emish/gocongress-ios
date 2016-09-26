@@ -19,6 +19,7 @@
 		DC652DA51D536C8C00FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
 		DC652DAD1D536CEC00FF0E90 /* CSVParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DAC1D536CEC00FF0E90 /* CSVParserTests.swift */; };
 		DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC652DA41D536C8C00FF0E90 /* Session.swift */; };
+		DC6E48AD1D98C50F00C69E6C /* Info in Resources */ = {isa = PBXBuildFile; fileRef = DC6E48AC1D98C50F00C69E6C /* Info */; };
 		DC7F412B1D60768800183096 /* congress_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7F412A1D60768800183096 /* congress_splash.png */; };
 		DC7F412D1D6087ED00183096 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F412C1D6087ED00183096 /* User.swift */; };
 		DC7F412E1D6087ED00183096 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F412C1D6087ED00183096 /* User.swift */; };
@@ -74,6 +75,7 @@
 		DC652DAA1D536CEC00FF0E90 /* GoCongressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoCongressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC652DAC1D536CEC00FF0E90 /* CSVParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParserTests.swift; sourceTree = "<group>"; };
 		DC652DAE1D536CEC00FF0E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6E48AC1D98C50F00C69E6C /* Info */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Info; sourceTree = "<group>"; };
 		DC7F412A1D60768800183096 /* congress_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = congress_splash.png; sourceTree = "<group>"; };
 		DC7F412C1D6087ED00183096 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DC7F41321D6C11E200183096 /* RSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		DC652DA31D4EC97700FF0E90 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DC6E48AC1D98C50F00C69E6C /* Info */,
 				DC7F412A1D60768800183096 /* congress_splash.png */,
 				DC652DA11D4EC96900FF0E90 /* congress_schedule.csv */,
 			);
@@ -304,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6E48AD1D98C50F00C69E6C /* Info in Resources */,
 				DC652D941D4EC42100FF0E90 /* LaunchScreen.storyboard in Resources */,
 				DC652D911D4EC42100FF0E90 /* Assets.xcassets in Resources */,
 				DC7F415F1D860BE700183096 /* Maps.xcassets in Resources */,

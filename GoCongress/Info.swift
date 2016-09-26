@@ -15,9 +15,13 @@ enum Info {
 }
 
 // Go Congress General Info
+// FIXME: This goes into appdelegate or info root view and gets loaded from the directory.
 let generalInfo = [
-    Info.Text("AGA Rules", "The rules will go here."),
-    Info.InfoList("Rules and Regulations", [
-        .Text("AGA Rules", "The rules will go here."),
-        ]),
+    Info.Text("AGA Rules", "Summary"),
+    Info.Text("Special Thanks", "Special_Thanks"),
+    Info.Text("Professional Players", "Professional_Players"),
+    Info.Text("Setting Ing Clocks", "Setting_Ing_Clocks"),
+    //Info.InfoList("Rules and Regulations", [
+//        .Text("AGA Rules", "The rules will go here."),
+//        ]),
 ]

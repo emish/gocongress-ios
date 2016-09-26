@@ -7,21 +7,35 @@
 //
 
 import UIKit
+import MMMarkdown
 
+/// Given a Title and a path, render the text in the markdown file at path in a VC.
 class InfoTextViewController: UIViewController {
 
     var infoTitle: String!
     var infoContent: String!
 
-    @IBOutlet weak var infoTitleLabel: UILabel!
-    @IBOutlet weak var infoContentTextView: UITextView!
+    //@IBOutlet weak var infoTitleLabel: UILabel!
+    //@IBOutlet weak var infoContentTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.infoTitleLabel.text = self.infoTitle
-        self.infoContentTextView.text = self.infoContent
+        //self.infoTitleLabel.text = self.infoTitle
+        // FIXME the nav bar title
+
+        // FIXME this is the path
+        //self.infoContentTextView.text = self.infoContent
+        let file: NSURL = NSBundle.mainBundle().URLForResource(infoContent, withExtension: "md", subdirectory: "Info")!
+        var mdString = try! MMMarkdown.HTMLStringWithMarkdown(String(contentsOfURL: file))
+
+        // Rewrite image paths.
+        //mdString = mdString.stringByReplacingOccurrencesOfString("<img src=\"", withString: "<img src=\"" + NSBundle.mainBundle().bundlePath + "/Info/")
+
+        let webView = UIWebView(frame: self.view.frame)
+        webView.loadHTMLString(mdString, baseURL: NSBundle.mainBundle().bundleURL.URLByAppendingPathComponent("Info"))
+        self.view.addSubview(webView)
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,7 @@ target 'GoCongress' do
 
   # Pods for GoCongress
   pod 'RSSKit'
+  pod 'MMMarkdown'
 
   target 'GoCongressTests' do
     inherit! :search_paths

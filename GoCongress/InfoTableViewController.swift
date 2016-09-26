@@ -12,11 +12,12 @@ let INFO_TABLE_CELL_IDENTIFIER = "infoTableCellIdentifier"
 
 class InfoTableViewController: UITableViewController {
 
-    var infoObjects: [Info]!
+    /// The information displayed by this Info Table. By default (the root view controller)
+    /// Displays the global general info.
+    var infoObjects: [Info]! = generalInfo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     // MARK: - Table view data source
@@ -32,7 +33,14 @@ class InfoTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(INFO_TABLE_CELL_IDENTIFIER, forIndexPath: indexPath)
-        
+
+        let infoToPopulate: Info = self.infoObjects[indexPath.row]
+        switch infoToPopulate {
+        case .InfoList(let title, _):
+            cell.textLabel?.text = title
+        case .Text(let title, _):
+            cell.textLabel?.text = title
+        }
 
         return cell
     }
