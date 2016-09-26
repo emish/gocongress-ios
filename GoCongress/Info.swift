@@ -11,6 +11,7 @@ import Foundation
 enum Info {
     case InfoList(String, [Info])
     case Text(String, String)
+    // There could be other cases for unique VC types that are displayed at the end of a nav InfoList
 }
 
 // Go Congress General Info

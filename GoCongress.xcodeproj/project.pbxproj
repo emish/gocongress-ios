@@ -26,7 +26,6 @@
 		DC7F41341D6C11E200183096 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41321D6C11E200183096 /* RSSParser.swift */; };
 		DC7F41381D6C1A0700183096 /* RSSFeedParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41371D6C1A0700183096 /* RSSFeedParserTests.swift */; };
 		DC7F413A1D6D477900183096 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41391D6D477900183096 /* NewsTableViewController.swift */; };
-		DC7F413B1D6D477900183096 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F41391D6D477900183096 /* NewsTableViewController.swift */; };
 		DC7F413D1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F413C1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift */; };
 		DC7F413E1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F413C1D6D5D0D00183096 /* NSDate+GoCongressAdditions.swift */; };
 		DC7F41401D6EB74900183096 /* RootInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F413F1D6EB74900183096 /* RootInfoTableViewController.swift */; };
@@ -272,9 +271,11 @@
 					DC652D831D4EC42100FF0E90 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 9GECTT6RV3;
+						LastSwiftMigration = 0800;
 					};
 					DC652DA91D536CEC00FF0E90 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = DC652D831D4EC42100FF0E90;
 					};
 				};
@@ -445,7 +446,6 @@
 				DC652DB41D53F1D200FF0E90 /* Session.swift in Sources */,
 				DC7F41471D6EB9B800183096 /* InfoTextViewController.swift in Sources */,
 				DC652DAD1D536CEC00FF0E90 /* CSVParserTests.swift in Sources */,
-				DC7F413B1D6D477900183096 /* NewsTableViewController.swift in Sources */,
 				DC7F41441D6EB83200183096 /* Info.swift in Sources */,
 				DC7F41411D6EB74900183096 /* RootInfoTableViewController.swift in Sources */,
 				DC7F41381D6C1A0700183096 /* RSSFeedParserTests.swift in Sources */,
@@ -584,6 +584,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -599,6 +600,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -611,6 +613,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongressTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoCongress.app/GoCongress";
 			};
 			name = Debug;
@@ -624,6 +627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = emish.GoCongressTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoCongress.app/GoCongress";
 			};
 			name = Release;
