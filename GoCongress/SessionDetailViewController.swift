@@ -34,7 +34,7 @@ class SessionDetailViewController: UIViewController {
         self.titleLabel.text = session.title
         self.instructorLabel.text = session.instructor
         // TODO: Some NSDateFormatter magic
-        self.dateTimeLabel.text = "\(session.timeStart) - \(session.timeEnd)"
+        self.dateTimeLabel.text = "\(session.timeStart.simpleDateAndTimeString) - \(session.timeEnd?.timeString ?? "")"
         self.roomLabel.text = session.room
 
         // Place and size the description View to fit
