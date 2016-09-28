@@ -20,6 +20,7 @@ class SessionDetailViewController: UIViewController {
     @IBOutlet weak var descriptionHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var saveRemoveButton: UIBarButtonItem!
+    @IBOutlet weak var contentView: UIView!
 
     var session: Session! = nil
 
@@ -52,9 +53,10 @@ class SessionDetailViewController: UIViewController {
         // Set the height constraint to the size of the fitted view after text is inserted.
         // https://medium.com/@pj_/ios-tips-dynamic-uitextview-102e73853fbc#.jzbn2fz7d
         self.descriptionTextView.sizeToFit()
-        let size = self.descriptionTextView.contentSize
-        self.descriptionHeightConstraint.constant = size.height
-        self.descriptionTextView.scrollEnabled = false
+        //let size = self.descriptionTextView.contentSize
+        //self.descriptionHeightConstraint.constant = size.height
+        //self.descriptionTextView.scrollEnabled = false
+        self.contentView.sizeToFit()
     }
 
     @IBAction func saveRemoveButtonTapped(sender: UIBarButtonItem) {
