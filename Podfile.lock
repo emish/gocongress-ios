@@ -1,15 +1,23 @@
 PODS:
   - MMMarkdown (0.5.5)
-  - RSSKit (1.0.9)
+  - MWFeedParser (1.0.1):
+    - MWFeedParser/FeedParser (= 1.0.1)
+    - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
+    - MWFeedParser/NSString+HTML (= 1.0.1)
+  - MWFeedParser/FeedParser (1.0.1):
+    - MWFeedParser/NSDate+InternetDateTime
+    - MWFeedParser/NSString+HTML
+  - MWFeedParser/NSDate+InternetDateTime (1.0.1)
+  - MWFeedParser/NSString+HTML (1.0.1)
 
 DEPENDENCIES:
   - MMMarkdown
-  - RSSKit
+  - MWFeedParser
 
 SPEC CHECKSUMS:
   MMMarkdown: 1af97166ce0f6d6e0cb05695665492195d27c3f1
-  RSSKit: 1305eaf9ac33fd67c5b57e925a41c0912ce5cda7
+  MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
 
-PODFILE CHECKSUM: b5c14e88c9254b999d294401bb210ce924999a6a
+PODFILE CHECKSUM: bd11b802b1132881e800b64d80c9a8da7f54083b
 
 COCOAPODS: 1.1.0.beta.1

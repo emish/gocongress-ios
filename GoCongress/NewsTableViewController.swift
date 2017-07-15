@@ -36,16 +36,16 @@ class NewsTableViewController: UITableViewController, UIWebViewDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Data.sharedData.feedParser.items.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: NewsTableViewCell = tableView.dequeueReusableCellWithIdentifier(NEWS_CELL_ID, forIndexPath: indexPath) as! NewsTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: NewsTableViewCell = tableView.dequeueReusableCell(withIdentifier: NEWS_CELL_ID, for: indexPath) as! NewsTableViewCell
 
         let feedItem = Data.sharedData.feedParser.items[indexPath.row]
 
@@ -56,7 +56,7 @@ class NewsTableViewController: UITableViewController, UIWebViewDelegate {
         cell.dateLabel.text = feedItem.date?.simpleDateAndTimeString ?? "No Date."
 
         cell.newsDescriptionWebView.loadHTMLString(feedItem.content ?? "", baseURL: nil)
-        cell.newsDescriptionWebView.scrollView.scrollEnabled = false
+        cell.newsDescriptionWebView.scrollView.isScrollEnabled = false
         cell.newsDescriptionWebView.delegate = self
 
         return cell
@@ -64,10 +64,10 @@ class NewsTableViewController: UITableViewController, UIWebViewDelegate {
 
     // MARK: - UIWebViewDelegate
 
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if let URL = request.URL {
-            if navigationType == .LinkClicked {
-                UIApplication.sharedApplication().openURL(URL)
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if let URL = request.url {
+            if navigationType == .linkClicked {
+                UIApplication.shared.openURL(URL)
                 return false
             }
         }

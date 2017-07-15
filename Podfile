@@ -6,7 +6,7 @@ target 'GoCongress' do
   use_frameworks!
 
   # Pods for GoCongress
-  pod 'RSSKit'
+  pod 'MWFeedParser'
   pod 'MMMarkdown'
 
   target 'GoCongressTests' do

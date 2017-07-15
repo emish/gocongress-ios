@@ -8,22 +8,22 @@
 
 import Foundation
 
-extension NSDate {
+extension Date {
 
     var timeString: String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .NoStyle
-        dateFormatter.timeStyle = .ShortStyle
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
 
-        return dateFormatter.stringFromDate(self)
+        return dateFormatter.string(from: self)
     }
 
     var simpleDateAndTimeString: String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .ShortStyle
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
 
-        return dateFormatter.stringFromDate(self)
+        return dateFormatter.string(from: self)
 
     }
 }

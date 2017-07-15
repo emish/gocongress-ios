@@ -22,23 +22,23 @@ class InfoTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // Only one section in sub info pages, the root info page can have multiple sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.infoObjects.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(INFO_TABLE_CELL_IDENTIFIER, forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: INFO_TABLE_CELL_IDENTIFIER, for: indexPath)
 
         let infoToPopulate: Info = self.infoObjects[indexPath.row]
         switch infoToPopulate {
-        case .InfoList(let title, _):
+        case .infoList(let title, _):
             cell.textLabel?.text = title
-        case .Text(let title, _):
+        case .text(let title, _):
             cell.textLabel?.text = title
         }
 
@@ -46,22 +46,22 @@ class InfoTableViewController: UITableViewController {
     }
 
     // Same as RootInfo here.
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Present the new view controller
         let infoToDisplay: Info = self.infoObjects[indexPath.row]
 
         switch infoToDisplay {
-        case .InfoList(let title, let infoList):
+        case .infoList(let title, let infoList):
             // Make a new InfoTableViewController and push.
-            let destinationViewController = self.navigationController!.storyboard!.instantiateViewControllerWithIdentifier("infoTableViewController") as! InfoTableViewController
+            let destinationViewController = self.navigationController!.storyboard!.instantiateViewController(withIdentifier: "infoTableViewController") as! InfoTableViewController
             // Set the title of the nav bar.
             destinationViewController.title = title
             destinationViewController.infoObjects = infoList
             self.navigationController!.pushViewController(destinationViewController, animated: true)
 
-        case .Text(let title, let content):
+        case .text(let title, let content):
             // Make a new InfoViewController and push.
-            let destinationViewController = self.navigationController!.storyboard!.instantiateViewControllerWithIdentifier("infoTextViewController") as! InfoTextViewController
+            let destinationViewController = self.navigationController!.storyboard!.instantiateViewController(withIdentifier: "infoTextViewController") as! InfoTextViewController
             // Set the title of the nav bar.
             destinationViewController.title = title
             destinationViewController.infoTitle = title

@@ -25,47 +25,47 @@ class MapsPageViewController: UIPageViewController, UIPageViewControllerDataSour
             "Basement"
         ]
         self.dataSource = self
-        self.setViewControllers([self.viewControllerAtIndex(0)], direction: .Forward, animated: false, completion: nil)
+        self.setViewControllers([self.viewControllerAtIndex(0)], direction: .forward, animated: false, completion: nil)
         self.navigationItem.title = self.mapNames[0]
     }
 
     // MARK: - UIPageViewControllerDataSource
 
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = (viewController as! MapImageViewController).pageIndex
         if index == 0 {
             return nil
         } else {
-            let nextVC = self.viewControllerAtIndex(index-1)
+            let nextVC = self.viewControllerAtIndex(index!-1)
             //self.navigationItem.title = nextVC.mapName
             return nextVC
         }
     }
 
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let index = (viewController as! MapImageViewController).pageIndex
         if index == self.mapNames.count - 1 {
             return nil
         } else {
-            let nextVC = self.viewControllerAtIndex(index+1)
+            let nextVC = self.viewControllerAtIndex(index!+1)
             //self.navigationItem.title = nextVC.mapName
             return nextVC
         }
     }
 
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return self.mapNames.count
     }
 
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         // how to find out the current view controller being displayed??
         return 0
     }
 
     // MARK: - Internal Helpers
 
-    private func viewControllerAtIndex(index: Int) -> MapImageViewController {
-        let mapImageVC: MapImageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapImageViewController") as! MapImageViewController
+    fileprivate func viewControllerAtIndex(_ index: Int) -> MapImageViewController {
+        let mapImageVC: MapImageViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapImageViewController") as! MapImageViewController
         mapImageVC.mapName = self.mapNames[index]
         mapImageVC.pageIndex = index
 

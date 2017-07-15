@@ -28,8 +28,8 @@ class MapImageViewController: UIViewController {
         self.mapImage.image = UIImage(named: self.mapName)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        self.parentViewController?.navigationItem.title = self.mapName
+    override func viewDidAppear(_ animated: Bool) {
+        self.parent?.navigationItem.title = self.mapName
     }
     
 

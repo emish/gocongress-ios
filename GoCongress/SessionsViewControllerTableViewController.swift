@@ -13,42 +13,42 @@ let SESSION_DETAIL_VIEW_SEGUE = "sessionDetailViewSegue"
 
 class SessionsViewControllerTableViewController: UITableViewController {
 
-    var allSectionsByTime = [NSDate: [Session]]()
-    var allSections = [NSDate]()
+    var allSectionsByTime = [Date: [Session]]()
+    var allSections = [Date]()
 
-    var favoriteSectionsByTime = [NSDate: [Session]]()
-    var favoriteSections = [NSDate]()
+    var favoriteSectionsByTime = [Date: [Session]]()
+    var favoriteSections = [Date]()
 
-    var showingSectionsByTime = [NSDate: [Session]]()
-    var showingSections = [NSDate]()
+    var showingSectionsByTime = [Date: [Session]]()
+    var showingSections = [Date]()
 
     @IBOutlet weak var sessionFilter: UISegmentedControl!
     var showingFavorites: Bool = false
 
     /// Return a sorted array of sections by date and dictionary of sections indexed by date.
-    func populateSectionsFromDataSource(dataSource: [Session]) -> ([NSDate], [NSDate: [Session]]) {
-        var tmpSections = [NSDate]()
-        var tmpSectionsByTime = [NSDate: [Session]]()
+    func populateSectionsFromDataSource(_ dataSource: [Session]) -> ([Date], [Date: [Session]]) {
+        var tmpSections = [Date]()
+        var tmpSectionsByTime = [Date: [Session]]()
 
         for session in dataSource {
             // Add the time start to our sections list.
-            if (!tmpSections.contains(session.timeStart)) {
-                tmpSections.append(session.timeStart)
+            if (!tmpSections.contains(session.timeStart as Date)) {
+                tmpSections.append(session.timeStart as Date)
             }
 
             // Store the list of sessions that start at that time.
-            if var sessionList = tmpSectionsByTime[session.timeStart] {
+            if var sessionList = tmpSectionsByTime[session.timeStart as Date] {
                 sessionList.append(session)
-                tmpSectionsByTime[session.timeStart] = sessionList
+                tmpSectionsByTime[session.timeStart as Date] = sessionList
             } else {
-                tmpSectionsByTime[session.timeStart] = [session]
+                tmpSectionsByTime[session.timeStart as Date] = [session]
             }
         }
 
         // FIXME: This is not sorting by date anymore... First store by date, then map to description.
         // Store in dictionary by date as well?
-        tmpSections.sortInPlace { (dateA, dateB) -> Bool in
-            return dateA.compare(dateB) == .OrderedAscending
+        tmpSections.sort { (dateA, dateB) -> Bool in
+            return dateA.compare(dateB) == .orderedAscending
         }
 
         return (tmpSections, tmpSectionsByTime)
@@ -65,7 +65,7 @@ class SessionsViewControllerTableViewController: UITableViewController {
         self.showingSectionsByTime = self.allSectionsByTime
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if self.showingFavorites {
             self.refilterFavorites()
             (self.showingSections, self.showingSectionsByTime) = (self.favoriteSections, self.favoriteSectionsByTime)
@@ -80,53 +80,53 @@ class SessionsViewControllerTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // FIXME: This is the number of distinct start hours, every session in a section is one that starts at that hour.
         return self.showingSectionsByTime.keys.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // This is the number of sessions that share the same start hour.
         let dateForSection = self.showingSections[section]
         return self.showingSectionsByTime[dateForSection]!.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(SESSION_CELL_ID, forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SESSION_CELL_ID, for: indexPath)
 
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .NoStyle
-        dateFormatter.timeStyle = .ShortStyle
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
         
         let session = self.showingSectionsByTime[self.showingSections[indexPath.section]]![indexPath.row]
         cell.textLabel!.text = "\(session.title) - \(session.instructor)"
         let timeEndString: String
         if let timeEnd = session.timeEnd {
-            timeEndString = " - \(dateFormatter.stringFromDate(timeEnd))"
+            timeEndString = " - \(dateFormatter.string(from: timeEnd as Date))"
         } else {
             timeEndString = ""
         }
-        cell.detailTextLabel!.text = "\(dateFormatter.stringFromDate(session.timeStart))\(timeEndString) -- \(session.room)"
+        cell.detailTextLabel!.text = "\(dateFormatter.string(from: session.timeStart as Date))\(timeEndString) -- \(session.room)"
         return cell
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .ShortStyle
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
         
-        return dateFormatter.stringFromDate(self.showingSections[section])
+        return dateFormatter.string(from: self.showingSections[section])
     }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == SESSION_DETAIL_VIEW_SEGUE) {
-            let detailViewController = segue.destinationViewController as! SessionDetailViewController
-            let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell)
+            let detailViewController = segue.destination as! SessionDetailViewController
+            let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
             let session = self.showingSectionsByTime[self.showingSections[indexPath!.section]]![indexPath!.row]
             detailViewController.session = session
         }
@@ -134,7 +134,7 @@ class SessionsViewControllerTableViewController: UITableViewController {
 
     // MARK: - Filtering Favorites
 
-    @IBAction func filterValueChanged(sender: UISegmentedControl) {
+    @IBAction func filterValueChanged(_ sender: UISegmentedControl) {
         // Showing favorites
         if sender.selectedSegmentIndex == 1 {
             self.refilterFavorites()

@@ -9,18 +9,18 @@
 import Foundation
 
 enum Info {
-    case InfoList(String, [Info])
-    case Text(String, String)
+    case infoList(String, [Info])
+    case text(String, String)
     // There could be other cases for unique VC types that are displayed at the end of a nav InfoList
 }
 
 // Go Congress General Info
 // FIXME: This goes into appdelegate or info root view and gets loaded from the directory.
 let generalInfo = [
-    Info.Text("AGA Rules", "Summary"),
-    Info.Text("Special Thanks", "Special_Thanks"),
-    Info.Text("Professional Players", "Professional_Players"),
-    Info.Text("Setting Ing Clocks", "Setting_Ing_Clocks"),
+    Info.text("AGA Rules", "Summary"),
+    Info.text("Special Thanks", "Special_Thanks"),
+    Info.text("Professional Players", "Professional_Players"),
+    Info.text("Setting Ing Clocks", "Setting_Ing_Clocks"),
     //Info.InfoList("Rules and Regulations", [
 //        .Text("AGA Rules", "The rules will go here."),
 //        ]),

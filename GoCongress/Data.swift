@@ -22,15 +22,15 @@ class Data {
     /// The parser that collects information from the Go Congress news blog.
     let feedParser: RSSParser
 
-    private init() {
+    fileprivate init() {
         var sessionParser = SessionParser(filename: self.filename)
         self.sessions = sessionParser.parse()
 
         // Right now we make a new one cuz all we store are the favorites.
         self.user = User()
 
-        if let storedFavorites = NSUserDefaults.standardUserDefaults().objectForKey("userFavorites") as? NSData {
-            self.user.favorites = NSKeyedUnarchiver.unarchiveObjectWithData(storedFavorites) as! [Session]
+        if let storedFavorites = UserDefaults.standard.object(forKey: "userFavorites") as? Foundation.Data {
+            self.user.favorites = NSKeyedUnarchiver.unarchiveObject(with: storedFavorites) as! [Session]
         }
 
         self.feedParser = RSSParser()
@@ -39,7 +39,7 @@ class Data {
     /// Save whatever is necessary to the local user defaults.
     func syncUserData() {
         // ℹ️ We need to user NSKeyedArchiver for the whole array because it contains non-plist types (that conform to NSCoding).
-        let storedFavorites = NSKeyedArchiver.archivedDataWithRootObject(self.user.favorites)
-        NSUserDefaults.standardUserDefaults().setObject(storedFavorites, forKey: "userFavorites")
+        let storedFavorites = NSKeyedArchiver.archivedData(withRootObject: self.user.favorites)
+        UserDefaults.standard.set(storedFavorites, forKey: "userFavorites")
     }
 }

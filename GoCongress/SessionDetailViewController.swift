@@ -47,7 +47,7 @@ class SessionDetailViewController: UIViewController {
         self.saveRemoveButton.title = (user.favorites.contains(session)) ? "Remove" : "Save"
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         // Set the height constraint to the size of the fitted view after text is inserted.
@@ -59,11 +59,11 @@ class SessionDetailViewController: UIViewController {
         self.contentView.sizeToFit()
     }
 
-    @IBAction func saveRemoveButtonTapped(sender: UIBarButtonItem) {
+    @IBAction func saveRemoveButtonTapped(_ sender: UIBarButtonItem) {
         var user = Data.sharedData.user
 
         if user.favorites.contains(self.session) {
-            user.favorites.removeAtIndex(user.favorites.indexOf(session)!)
+            user.favorites.remove(at: user.favorites.index(of: session)!)
             self.saveRemoveButton.title = "Save"
         } else {
             user.favorites.append(session)

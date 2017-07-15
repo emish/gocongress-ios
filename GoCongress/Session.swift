@@ -13,14 +13,14 @@ class Session : NSObject, Comparable, NSCoding {
     let instructor: String
     let room: String
     let info: String
-    let date: NSDate
-    let timeStart: NSDate
+    let date: Date
+    let timeStart: Date
     /// The time a session ends. May not exist.
-    let timeEnd: NSDate?
+    let timeEnd: Date?
 
-    static let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    static let calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
 
-    init(title: String, instructor: String, room: String, info: String, date: NSDate, timeStart: NSDate, timeEnd: NSDate?) {
+    init(title: String, instructor: String, room: String, info: String, date: Date, timeStart: Date, timeEnd: Date?) {
         self.title = title
         self.instructor = instructor
         self.room = room
@@ -31,13 +31,13 @@ class Session : NSObject, Comparable, NSCoding {
     }
 
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let title = aDecoder.decodeObjectForKey("title") as? String,
-            let instructor = aDecoder.decodeObjectForKey("instructor") as? String,
-            let room = aDecoder.decodeObjectForKey("room") as? String,
-            let info = aDecoder.decodeObjectForKey("info") as? String,
-            let date = aDecoder.decodeObjectForKey("date") as? NSDate,
-            let timeStart = aDecoder.decodeObjectForKey("timeStart") as? NSDate,
-            let timeEnd = aDecoder.decodeObjectForKey("timeEnd") as? NSDate?
+        guard let title = aDecoder.decodeObject(forKey: "title") as? String,
+            let instructor = aDecoder.decodeObject(forKey: "instructor") as? String,
+            let room = aDecoder.decodeObject(forKey: "room") as? String,
+            let info = aDecoder.decodeObject(forKey: "info") as? String,
+            let date = aDecoder.decodeObject(forKey: "date") as? Date,
+            let timeStart = aDecoder.decodeObject(forKey: "timeStart") as? Date,
+            let timeEnd = aDecoder.decodeObject(forKey: "timeEnd") as? Date?
             else {
                 return nil
         }
@@ -53,17 +53,17 @@ class Session : NSObject, Comparable, NSCoding {
         )
     }
 
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.title, forKey: "title")
-        aCoder.encodeObject(self.instructor, forKey: "instructor")
-        aCoder.encodeObject(self.room, forKey: "room")
-        aCoder.encodeObject(self.info, forKey: "info")
-        aCoder.encodeObject(self.date, forKey: "date")
-        aCoder.encodeObject(self.timeStart, forKey: "timeStart")
-        aCoder.encodeObject(self.timeEnd, forKey: "timeEnd")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.title, forKey: "title")
+        aCoder.encode(self.instructor, forKey: "instructor")
+        aCoder.encode(self.room, forKey: "room")
+        aCoder.encode(self.info, forKey: "info")
+        aCoder.encode(self.date, forKey: "date")
+        aCoder.encode(self.timeStart, forKey: "timeStart")
+        aCoder.encode(self.timeEnd, forKey: "timeEnd")
     }
 
-    override func isEqual(object: AnyObject?) -> Bool {
+    override func isEqual(_ object: Any?) -> Bool {
         guard let someSession = object as? Session else {
             fatalError("Cannot compare non-session object with Session object.")
         }
@@ -90,19 +90,19 @@ struct SessionParser {
     let fullPath: String
     
     // TODO: Create NSTimeZone and parse times as EST or w/e they happen to be.
-    let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    let calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
     
     /// Parser internal state machine for progressing through the CSV.
-    var currentDate: NSDate?
+    var currentDate: Date?
     var currentRoom: String?
-    var currentStartTime: NSDate?
-    var currentEndTime: NSDate?
+    var currentStartTime: Date?
+    var currentEndTime: Date?
     var currentTitle: String?
     var currentId: Int
     
     init(filename: String) {
-        let bundle = NSBundle.mainBundle()
-        self.fullPath = bundle.pathForResource(filename, ofType: "csv")!
+        let bundle = Bundle.main
+        self.fullPath = bundle.path(forResource: filename, ofType: "csv")!
         print("Filename loading: \(self.fullPath)")
         
         self.rawData = try! String(contentsOfFile: self.fullPath)
@@ -114,8 +114,8 @@ struct SessionParser {
     /// Parse the input CSV file that was configured in the initializer and return the list of Sessions generated.
     mutating func parse() -> [Session] {
         var sessions = [Session]()
-        let rows = self.rawData.componentsSeparatedByString("\r\n")
-        for (i, row) in rows.enumerate() {
+        let rows = self.rawData.components(separatedBy: "\r\n")
+        for (i, row) in rows.enumerated() {
             if i == 0 {
                 // This is the header row
                 continue
@@ -135,8 +135,8 @@ struct SessionParser {
     /// Parse a single row.
     /// Notes: 
     ///    - Some rows may be emtpy thus return a nil Session.
-    mutating func parseRow(row: String) -> Session? {
-        let parts = row.componentsSeparatedByString(",")
+    mutating func parseRow(_ row: String) -> Session? {
+        let parts = row.components(separatedBy: ",")
         
         var allEmpty = true
         for part in parts {
@@ -159,7 +159,7 @@ struct SessionParser {
             self.currentRoom = room
         }
         
-        let times = parts[2].componentsSeparatedByString("-").map {$0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())}
+        let times = parts[2].components(separatedBy: "-").map {$0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)}
 
         if (times[0] != "") {
             self.currentStartTime = self.timeFromString(times[0], date: self.currentDate!)
@@ -195,31 +195,31 @@ struct SessionParser {
     
     func numberOfCols() -> Int {
         // First row has no newlines.
-        let rows = self.rawData.componentsSeparatedByString("\n")
-        return rows[0].componentsSeparatedByString(",").count
+        let rows = self.rawData.components(separatedBy: "\n")
+        return rows[0].components(separatedBy: ",").count
     }
     
-    func dateFromString(dateString: String) -> NSDate {
+    func dateFromString(_ dateString: String) -> Date {
         // Assumed to be split by slash
-        let dateParts = dateString.componentsSeparatedByString("/")
+        let dateParts = dateString.components(separatedBy: "/")
         
-        let components = NSDateComponents()
+        var components = DateComponents()
         components.month = Int(dateParts[0])!
         components.day = Int(dateParts[1])!
         components.year = 2016
         
-        return self.calendar.dateFromComponents(components)!
+        return self.calendar.date(from: components)!
     }
     
     /// Given a date and a time string construct an NSDate of that time.
-    func timeFromString(timeString: String, date: NSDate) -> NSDate {
+    func timeFromString(_ timeString: String, date: Date) -> Date {
         //let yearComp = self.calendar.component(.Year, fromDate: date)
         //let monthComp = self.calendar.component(.Month, fromDate: date)
         //let dayComp = self.calendar.component(.Day, fromDate: date)
-        let timeParts = timeString.componentsSeparatedByString(":")
+        let timeParts = timeString.components(separatedBy: ":")
         let hour = Int(timeParts[0])!
         let minute = Int(timeParts[1])!
-        let timeDate = self.calendar.dateBySettingHour(hour, minute: minute, second: 0, ofDate: date, options: NSCalendarOptions.MatchStrictly)!
+        let timeDate = (self.calendar as NSCalendar).date(bySettingHour: hour, minute: minute, second: 0, of: date, options: NSCalendar.Options.matchStrictly)!
         return timeDate
     }
 }

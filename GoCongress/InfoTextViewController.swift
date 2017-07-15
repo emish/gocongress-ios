@@ -27,14 +27,14 @@ class InfoTextViewController: UIViewController {
 
         // FIXME this is the path
         //self.infoContentTextView.text = self.infoContent
-        let file: NSURL = NSBundle.mainBundle().URLForResource(infoContent, withExtension: "md", subdirectory: "Info")!
-        var mdString = try! MMMarkdown.HTMLStringWithMarkdown(String(contentsOfURL: file))
+        let file: URL = Bundle.main.url(forResource: infoContent, withExtension: "md", subdirectory: "Info")!
+        let mdString = try! MMMarkdown.htmlString(withMarkdown: String(contentsOf: file))
 
         // Rewrite image paths.
         //mdString = mdString.stringByReplacingOccurrencesOfString("<img src=\"", withString: "<img src=\"" + NSBundle.mainBundle().bundlePath + "/Info/")
 
         let webView = UIWebView(frame: self.view.frame)
-        webView.loadHTMLString(mdString, baseURL: NSBundle.mainBundle().bundleURL.URLByAppendingPathComponent("Info"))
+        webView.loadHTMLString(mdString, baseURL: Bundle.main.bundleURL.appendingPathComponent("Info"))
         self.view.addSubview(webView)
     }
 

@@ -7,43 +7,44 @@
 //
 
 import Foundation
-import RSSKit
+import MWFeedParser
 
 let CONGRESS_RSS_FEED = "feed://live.gocongress.org/?feed=rss2"
 
-class RSSParser: RSSFeedParserDelegate {
+class RSSParser: NSObject, MWFeedParserDelegate {
 
-    var items = [RSSFeedItem]()
+    var items = [MWFeedItem]()
 
-    init() {
-        let feedURL: NSURL = NSURL(string: CONGRESS_RSS_FEED)!
-        let feedParser: RSSFeedParser = RSSFeedParser(feedURL: feedURL)
+    override init() {
+        super.init()
 
+        let feedURL: URL = URL(string: CONGRESS_RSS_FEED)!
+        let feedParser: MWFeedParser = MWFeedParser(feedURL: feedURL)
+
+        // Configure and begin parsing.
         feedParser.delegate = self
-        feedParser.feedParseType = .Full
-
-        feedParser.connectionType = .Asynchronously
-
+        feedParser.feedParseType = ParseTypeFull
+        feedParser.connectionType = ConnectionTypeAsynchronously
         feedParser.parse()
     }
 
-    @objc func feedParserDidStart(parser: RSSFeedParser) {
+    func feedParserDidStart(_ parser: MWFeedParser) {
         print("Started parsing.")
     }
 
-    @objc func feedParserDidFinish(parser: RSSFeedParser) {
+    func feedParserDidFinish(_ parser: MWFeedParser) {
         print("Finished parsing.")
     }
 
-    @objc func feedParser(parser: RSSFeedParser, didFailWithError error: NSError) {
+    func feedParser(_ parser: MWFeedParser, didFailWithError error: Error) {
         print("Failed parsing with error \(error).")
     }
 
-    @objc func feedParser(parser: RSSFeedParser, didParseFeedInfo info: RSSFeedInfo) {
+    func feedParser(_ parser: MWFeedParser, didParseFeedInfo info: MWFeedInfo) {
         print("Parsed a FeedInfo: \(info).")
     }
 
-    @objc func feedParser(parser: RSSFeedParser, didParseFeedItem item: RSSFeedItem) {
+    func feedParser(_ parser: MWFeedParser, didParseFeedItem item: MWFeedItem) {
         print("Parsed a FeedItem: \(item).")
         // TODO: Make sure this gets inserted in sorted order by date updated.
         if !self.items.contains(item) {
@@ -52,18 +53,19 @@ class RSSParser: RSSFeedParserDelegate {
     }
 }
 
-extension RSSFeedItem {
-    override public func isEqual(object: AnyObject?) -> Bool {
-        guard let someFeedItem = object as? RSSFeedItem else {
-            fatalError("Cannot compare non-session object with Session object.")
-        }
-        return self.identifier == someFeedItem.identifier &&
-            self.title == someFeedItem.title &&
-            self.link == someFeedItem.link &&
-            self.date == someFeedItem.date &&
-            self.updated == someFeedItem.updated &&
-            self.summary == someFeedItem.summary &&
-            self.content == someFeedItem.content &&
-            self.author == someFeedItem.author
-    }
-}
+// FIXME: Decide if necessary
+//extension MWFeedItem {
+//    override public func isEqual(_ object: AnyObject?) -> Bool {
+//        guard let someFeedItem = object as? MWFeedItem else {
+//            fatalError("Cannot compare non-session object with Session object.")
+//        }
+//        return self.identifier == someFeedItem.identifier &&
+//            self.title == someFeedItem.title &&
+//            self.link == someFeedItem.link &&
+//            self.date == someFeedItem.date &&
+//            self.updated == someFeedItem.updated &&
+//            self.summary == someFeedItem.summary &&
+//            self.content == someFeedItem.content &&
+//            self.author == someFeedItem.author
+//    }
+//}

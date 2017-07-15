@@ -28,30 +28,30 @@ class CSVParserTests: XCTestCase {
     }
 
     func testDateFromString() {
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        let components = NSDateComponents()
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        var components = DateComponents()
         components.month = 1
         components.day = 1
         components.year = 2016
 
-        let testDate = calendar?.dateFromComponents(components)
+        let testDate = calendar.date(from: components)
         let testStringDate = parser.dateFromString("01/01/2016")
 
         XCTAssertEqual(testDate, testStringDate)
     }
 
     func testTimeFromString() {
-        let components = NSDateComponents()
+        var components = DateComponents()
         components.month = 8
         components.day = 1
         components.year = 2016
 
-        let dayOnly = self.parser.calendar.dateFromComponents(components)!
+        let dayOnly = self.parser.calendar.date(from: components)!
 
         components.hour = 15
         components.minute = 0
 
-        let realTime = self.parser.calendar.dateFromComponents(components)
+        let realTime = self.parser.calendar.date(from: components)
         let testString = "15:00"
         let testTime = parser.timeFromString(testString, date: dayOnly)
         XCTAssertEqual(testTime, realTime)
